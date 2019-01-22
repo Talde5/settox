@@ -14,60 +14,79 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/ikaslea', function () {
-    return view('ikaslea');
-});
-Route::get('/ikaslea/perfila', function () {
-    return view('ikasleaPerfila');
-});
-Route::get('/ikaslea/eskaintzak', function () {
-    return view('ikasleaEskaintzak');
-});
-Route::get('/ikaslea/interesa', function () {
-    return view('ikasleaInteresa');
-});
-Route::get('/ikaslea/CV', function () {
-    return view('ikasleaCV');
-});
-
-
-Route::get('/irakaslea', function () {
-    return view('irakaslea');
-});
-Route::get('/irakaslea/eskaintzak', function () {
-    return view('irakasleaEskaintzak');
-});
-Route::get('/irakaslea/eskaintzak/gehitu', function () {
-    return view('irakasleaEskaintzaGehitu');
-});
-Route::get('/irakaslea/eskaintzak/interesa', function () {
-    return view('irakasleaInteresaIkusi');
-});
 
 
 
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/ikaslea', 'IkasleaController@getIndex');
+
+    /*Route::get('/ikaslea', function () {
+        return view('ikaslea');
+    });*/
+
+    Route::get('/ikaslea/perfila', 'IkasleaController@getPerfila');
+    /*Route::get('/ikaslea/perfila', function () {
+        return view('ikasleaPerfila');
+    });*/
+    
+    //ikasleaEskaintzak ez da beharrezkoa indexean egongo delako
+    
+    /*Route::get('/ikaslea/eskaintzak', function () {
+        return view('ikasleaEskaintzak');
+    });*/
+    Route::get('/ikaslea/interesa', 'IkasleaController@getInteresa');
+    
+    /*Route::get('/ikaslea/interesa', function () {
+        return view('ikasleaInteresa');
+    });*/
+    Route::get('/ikaslea/CV', 'IkasleaController@getCV');
+    
+    /*Route::get('/ikaslea/CV', function () {
+        return view('ikasleaCV');
+    });*/
+//***************************IrakasleaController********************
+    Route::get('/irakaslea', 'IrakasleaController@getIndex');
+    /*Route::get('/irakaslea', function () {
+        return view('irakaslea');
+    });*/
+
+    //Eskaintzak gehitzeko izango da
+    Route::get('/irakaslea/Eskaintzak', 'IrakasleaController@getEskaintzak');
+    /*Route::get('/irakaslea/eskaintzak', function () {
+        return view('irakasleaEskaintzak');
+    });*/
+
+    Route::get('/irakaslea/ikasleak', 'IrakasleaController@getIkasleak');
+    
+    Route::get('/irakaslea/interesa', 'IrakasleaController@getInteresa');
+    /*Route::get('/irakaslea/eskaintzak/interesa', function () {
+        return view('irakasleaInteresaIkusi');
+    });*/
 
 
 
+//*****************AdministratzaileaController***********************
 
-Route::get('/administratzailea', function () {
-    return view('administratzailea');
-});
-Route::get('/administratzailea/irakasleak', function () {
-    return view('administratzaileaIrakaslea');
-});
-Route::get('/administratzailea/irakasleak/sortu', function () {
-    return view('administratzaileaIrakasleaSortu');
-});
-Route::get('/administratzailea/eskaintzak', function () {
-    return view('administratzaileaEskaintzak');
-});
-Route::get('/administratzailea/eskaintzak/sortu', function () {
-    return view('administratzaileaEskaintzakSortu');
-});
-Route::get('/administratzailea/ikasleak', function () {
-    return view('administratzaileaIkasleak');
-});
-Route::get('/administratzailea/ikasleak/gehitu', function () {
-    return view('administratzaileaIkasleakGehitu');
+
+    Route::get('/administratzailea', 'AdministratzaileaController@getIndex');
+    /*Route::get('/administratzailea', function () {
+        return view('administratzailea');
+    });*/
+
+    Route::get('/administratzailea/irakasleak', 'AdministratzaileaController@getIrakasleak');
+    /*Route::get('/administratzailea/irakasleak', function () {
+        return view('administratzaileaIrakaslea');
+    });*/
+    Route::get('/administratzailea/irakasleak/sortu', 'AdministratzaileaController@getIrakasleakSortu');
+    /*Route::get('/administratzailea/irakasleak/sortu', function () {
+        return view('administratzaileaIrakasleaSortu');
+    });*/
+    
+    Route::get('/administratzailea/ikasleak', 'AdministratzaileaController@getIkasleak');
+    /*Route::get('/administratzailea/ikasleak', function () {
+        return view('administratzaileaIkasleak');
+    });*/
+    
+
 });
