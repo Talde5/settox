@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 
 
-Route::group(['middleware' => 'auth'], function () {
+//Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/ikaslea', 'IkasleaController@getIndex');
 
@@ -46,10 +46,13 @@ Route::group(['middleware' => 'auth'], function () {
         return view('ikasleaCV');
     });*/
 //***************************IrakasleaController********************
-    Route::get('/irakaslea', 'IrakasleaController@getIndex');
+    Route::get('/irakaslea', 'IrakasleaController@index');
     /*Route::get('/irakaslea', function () {
         return view('irakaslea');
     });*/
+
+    //Para importar xlsx, xls y csv
+    Route::post('import', 'IrakasleaController@import')->name('import');
 
     //Eskaintzak gehitzeko izango da
     Route::get('/irakaslea/Eskaintzak', 'IrakasleaController@getEskaintzak');
@@ -89,4 +92,4 @@ Route::group(['middleware' => 'auth'], function () {
     });*/
     
 
-});
+//});
