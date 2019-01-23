@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models;
+use App\Models\administratzaileak;
 use Illuminate\Http\Request;
 
 class AdministratzaileaController extends Controller
