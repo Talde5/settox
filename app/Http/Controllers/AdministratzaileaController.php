@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models;
 use Illuminate\Http\Request;
 
 class AdministratzaileaController extends Controller
@@ -22,11 +23,12 @@ class AdministratzaileaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function irakasleak(Request $irakasleak)
     {
-        //
+       if(!$request->ajax())return redirect('/administratzaileaIrakaslea');
+        $irakasleak = administratzaileak::all()->where ('egoera','0');
+        return $irakasleak;
     }
-
     /**
      * Store a newly created resource in storage.
      *
