@@ -69,9 +69,10 @@ class IrakasleaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function eskaintzak()
     {
         //
+        return view('irakasleaEskaintzak');
     }
 
     /**

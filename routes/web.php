@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 
 
-Route::group(['middleware' => 'auth'], function () {
+//Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/ikaslea', 'IkasleaController@Index');
 
@@ -47,12 +47,14 @@ Route::group(['middleware' => 'auth'], function () {
     });*/
 //***************************IrakasleaController********************
     Route::get('/irakaslea', 'IrakasleaController@Index');
+
+    Route::post('import', 'IrakasleaController@import')->name('import');
     /*Route::get('/irakaslea', function () {
         return view('irakaslea');
     });*/
 
     //Eskaintzak gehitzeko izango da
-    Route::get('/irakaslea/Eskaintzak', 'IrakasleaController@Eskaintzak');
+    Route::get('/irakaslea/eskaintzak', 'IrakasleaController@Eskaintzak');
     /*Route::get('/irakaslea/eskaintzak', function () {
         return view('irakasleaEskaintzak');
     });*/
@@ -89,4 +91,4 @@ Route::group(['middleware' => 'auth'], function () {
     });*/
     
 
-});
+//});
