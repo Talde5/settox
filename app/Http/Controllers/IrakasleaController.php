@@ -16,8 +16,10 @@ class IrakasleaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+        $user = Auth::user();
+        $eskaintzak = DB::table('eskaintzak') -> where('departamentua', $user -> departamentua) -> get();
+
         return view('Add');
     }
 

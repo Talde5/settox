@@ -39,7 +39,7 @@
  -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Setox</a>
+        <a class="navbar-brand" href="#">Settox</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -61,6 +61,32 @@
                   <a class="nav-link" href="#">Contact</a>
                 </li>
               </ul>
+              <ul class="navbar-nav navbar-right">
+                    <li class="nav-item"> 
+                        <!-- <div class="dropdown navbar-nav navbar-right">
+                          <button class="btn btn-link dropdown-toggle nav-item" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            perfil
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <form action="{{ url('/logout') }}" method="POST" style="display:inline" >
+                            {{ csrf_field() }}
+                            <button type="submit" class="btn btn-link nav-link dropdown-item" style="display:inline;cursor:pointer">
+                                Cerrar sesión
+                            </button>
+                        </form>
+                          </div>
+                        </div> -->
+                         <form action="{{ url('/logout') }}" method="POST" style="display:inline">
+                            {{ csrf_field() }}
+                            <button type="submit" class="btn btn-link nav-link" style="display:inline;cursor:pointer">
+                                Cerrar sesión
+                            </button>
+                        </form>
+                    </li>
+                </ul> 
             </div>
         @endif
       </div>
