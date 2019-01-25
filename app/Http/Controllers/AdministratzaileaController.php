@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\administratzaileak;
 use Illuminate\Http\Request;
 
@@ -23,11 +24,11 @@ class AdministratzaileaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function irakasleak(Request $irakasleak)
+    public function irakasleak()
     {
-       if(!$request->ajax())return redirect('/administratzaileaIrakaslea');
-        $irakasleak = administratzaileak::all()->where ('egoera','0');
-        return $irakasleak;
+        //if(!$request->ajax())return redirect('/administratzailea/irakasleak');
+        $administratzaileak = DB::table('administratzaileak')->where ('mota',1)-> get();
+        return view('administratzaileaIrakaslea', compact('administratzaileak'));
     }
     /**
      * Store a newly created resource in storage.

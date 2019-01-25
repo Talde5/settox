@@ -81,7 +81,7 @@ return [
     | based on the extension alone.
     |
     */
-    'extension_detector' => [
+    'extension_detector' => [/*
         'xlsx'     => Excel::XLSX,
         'xlsm'     => Excel::XLSX,
         'xltx'     => Excel::XLSX,
@@ -96,7 +96,7 @@ return [
         'htm'      => Excel::HTML,
         'html'     => Excel::HTML,
         'csv'      => Excel::CSV,
-        'tsv'      => Excel::TSV,
+        'tsv'      => Excel::TSV,*/
 
         /*
         |--------------------------------------------------------------------------
@@ -106,7 +106,7 @@ return [
         | Configure here which Pdf driver should be used by default.
         | Available options: Excel::MPDF | Excel::TCPDF | Excel::DOMPDF
         |
-        */
-        'pdf'      => Excel::DOMPDF,
+        
+        'pdf'      => Excel::DOMPDF,*/
     ],
 ];
