@@ -20,7 +20,7 @@ class IrakasleaController extends Controller
     public function index()
     {   
         //$user = Auth::user();
-        $eskaintzak = eskaintzak::all();//DB::table('eskaintzak') -> get();// -> where('departamentua', 'ander') -> get();
+        $eskaintzak = eskaintzak::all() ;//-> where('departamentua', 'informatika'//$user -> departamentua);
 
         return view('Add', compact('eskaintzak'));
     }

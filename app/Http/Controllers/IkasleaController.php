@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\perfila;
+use App\Models\eskaintzak;
 
 class IkasleaController extends Controller
 {
@@ -12,9 +14,17 @@ class IkasleaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
-        return view('ikaslea');
+    {   
+        //$user = Auth::user();
+        $eskaintzak = eskaintzak::all() ;//-> where('departamentua', 'informatika'//$user -> departamentua);
+
+        return view('ikaslea', compact('eskaintzak'));
+    }
+    public function Perfila(){
+        //$user = Auth::user();
+        $perfila = perfila::where('email', 'ikaslea@ikaslea.com') -> first();//$user -> email)
+        //dd($perfila);
+        return view('ikasleaPerfila', compact('perfila'));
     }
 
     /**
