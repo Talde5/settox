@@ -6,10 +6,7 @@
 
     <form method="POST" action="create">
         {{ csrf_field() }}
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" class="form-control" id="name" name="name">
-        </div>
+        
  
         <div class="form-group">
             <label for="email">Email:</label>
@@ -17,8 +14,8 @@
         </div>
  
         <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" name="password">
+            <label for="pasahitza">Password:</label>
+            <input type="password" class="form-control" id="pasahitza" name="pasahitza">
         </div>
         <div class="form-group">
             <label for="mota">mota:</label>
