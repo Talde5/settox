@@ -18,6 +18,22 @@ class AdministratzaileaController extends Controller
         //
         return view('administratzailea');
     }
+    public function Ikasleak(){
+       // $ikasleak = ikasleak::where('egoera', 1)->get();
+
+        $ikasleak = DB::table('perfila')
+        ->whereIn('email', function($query)
+        {
+            $query->select(DB::raw('email'))
+                  ->from('ikasleak')
+                  ->where('egoera', 1);
+        })
+        ->get();
+        
+
+        return view('administratzaileaIkasleak', compact('ikasleak'));
+
+    }
 
     /**
      * Show the form for creating a new resource.

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\perfila;
 use App\Models\eskaintzak;
+use App\Models\erlazioa;
 
 class IkasleaController extends Controller
 {
@@ -25,6 +27,30 @@ class IkasleaController extends Controller
         $perfila = perfila::where('email', 'ikaslea@ikaslea.com') -> first();//$user -> email)
         //dd($perfila);
         return view('ikasleaPerfila', compact('perfila'));
+    }
+
+    public function Interesa(){
+        //$user = Auth::user();
+      $eskaintzak = DB::table('eskaintzak')
+        ->whereIn('idEskaintzak', function($query)
+        {
+            $query->select(DB::raw('idEskaintzak'))
+                  ->from('erlazioa')
+                  ->where('email', 'ikaslea@ikaslea.com');
+        })
+        ->get();
+
+        /*dd($eskaintzak);
+        $erlazioak = erlazioa::where('email', 'ikaslea@ikaslea.com') -> get();//$user -> email)
+        //dd($erlazioa);// ->get('idEskaintzak'));
+        foreach ($erlazioak as $erlazioa) {
+            $idEsk = $erlazioa -> idEskaintzak;
+        }
+        dd($idEsk);
+
+        $eskaintzak = eskaintzak::whereIn('idEskaintzak', $erlazioa -> idEskaintzak) -> get();*/
+
+        return view('ikasleaInteresa', compact('eskaintzak'));
     }
 
     /**
