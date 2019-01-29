@@ -50,17 +50,18 @@ class AdministratzaileaController extends Controller
     public function store()
     {
         $this->validate(request(), [
-            'name' => 'required',
+            
             'email' => 'required|email',
-            'password' => 'required',
+            'pasahitza' => 'required',
           	 'mota' => 'required',
           	 'egoera' => 'required',
             'departamentua' => 'required'
         ]);
+      
         
-        $Administratzaileak = Administratzaileak::create(request(['name', 'email', 'password','mota','egoera','departamentua']));
+        $Administratzaileak = Administratzaileak::create(request([ 'email', 'pasahitza','mota','egoera','departamentua']));
         
-        auth()->login($Administratzaileak);
+        
         
         return redirect()->to('/create');
     }
