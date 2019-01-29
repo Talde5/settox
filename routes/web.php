@@ -20,7 +20,7 @@ Route::get('/', function () {
 //Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/ikaslea', 'IkasleaController@Index');
-
+    //X
     
 
     Route::get('/ikaslea/perfila', 'IkasleaController@Perfila');
@@ -37,8 +37,10 @@ Route::get('/', function () {
     
 //***************************IrakasleaController********************
     Route::get('/irakaslea', 'IrakasleaController@Index');
+    //X
 
     Route::post('import', 'IrakasleaController@import')->name('import');
+    //X
     
 
     //Eskaintzak gehitzeko izango da

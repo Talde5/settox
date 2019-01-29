@@ -12,5 +12,7 @@ class perfila extends Model
 
     public $timestamps = false;
 
+    public $incrementing = false;
+
     protected $fillable = ['email', 'dni', 'izena','apellidos','jaiotze_Data','helbidea','kontaktua'];
 }

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\eskaintzak;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Session;
 use Excel;
 use File;
+use Auth;
 
 class IrakasleaController extends Controller
 {
@@ -17,10 +19,10 @@ class IrakasleaController extends Controller
      */
     public function index()
     {   
-        $user = Auth::user();
-        $eskaintzak = DB::table('eskaintzak') -> where('departamentua', $user -> departamentua) -> get();
+        //$user = Auth::user();
+        $eskaintzak = eskaintzak::all() ;//-> where('departamentua', 'informatika'//$user -> departamentua);
 
-        return view('Add');
+        return view('Add', compact('eskaintzak'));
     }
 
     public function import(Request $request){
