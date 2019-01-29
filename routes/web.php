@@ -54,10 +54,15 @@ Route::get('/', function () {
 //*****************AdministratzaileaController***********************
 
 
+Route::get('/create', 'AdministratzaileaController@create');
+Route::post('create', 'AdministratzaileaController@store');
+
+
     Route::get('/administratzailea', 'AdministratzaileaController@Index');
     
 
     Route::get('/administratzailea/irakasleak', 'AdministratzaileaController@Irakasleak');
+
     
     Route::get('/administratzailea/irakasleak/sortu', 'AdministratzaileaController@IrakasleakSortu');
     

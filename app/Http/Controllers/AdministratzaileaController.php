@@ -36,9 +36,33 @@ class AdministratzaileaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function borrar(Request $email)
     {
-        //
+        $administratzaileak = DB::table('Administratzaileak')->where ('email','$email')-> delete();
+        return view('administratzaileaIrakaslea');
+    }
+
+    public function create()
+    {
+        return view('create');
+    }
+
+    public function store()
+    {
+        $this->validate(request(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+          	 'mota' => 'required',
+          	 'egoera' => 'required',
+            'departamentua' => 'required'
+        ]);
+        
+        $Administratzaileak = Administratzaileak::create(request(['name', 'email', 'password','mota','egoera','departamentua']));
+        
+        auth()->login($Administratzaileak);
+        
+        return redirect()->to('/create');
     }
 
     /**
@@ -47,10 +71,20 @@ class AdministratzaileaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+  
+
+
+
+
+ 
+               
+            
+            
+
+
+
+
+
 
     /**
      * Show the form for editing the specified resource.

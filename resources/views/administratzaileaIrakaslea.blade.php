@@ -20,6 +20,7 @@
         </div>
         <div class="col-lg-9">
             <div class="row">
+          
                 @foreach ($administratzaileak as $administratzailea)
                 <div class="col-lg-4 col-md-8 mb-4 carta">
                   <div class="card h-100">
