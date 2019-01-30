@@ -1,13 +1,13 @@
 #!/bin/bash
 
-DIRECTORIO=/home/ik_2dw3/Escritorio/sep
+DIRECTORIO=/home/ik_2dw3/Escritorio/pepe
 DIA=`date +"%d/%m/%Y"`
 
 
 if [ -d "$DIRECTORIO" ]
 then
    echo "El directorio ${DIRECTORIO} existe"
-   cd /home/ik_2dw3/Escritorio/sep
+   cd /home/ik_2dw3/Escritorio/pepe
    git pull origin master
    git add .
    git commit -m "$DIA"
@@ -17,7 +17,7 @@ then
    
 else
     echo "El directorio ${DIRECTORIO} no existe"
-    git clone https://github.com/Talde5/settox /home/ik_2dw3/Escritorio/sep
+    git clone https://github.com/Talde5/settox /home/ik_2dw3/Escritorio/pepe
     cd /home/ik_2dw3/Escritorio/sep
     git pull origin master
     git add .
