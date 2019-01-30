@@ -32,6 +32,7 @@
                               <li class="nav-item">
                             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
                         </li>
+
                             </ul>
                             </div>
 
@@ -54,7 +55,7 @@
                       
                     </div>
                     <div class="card-footer">
-                        <small><button id="bidaliCV" class="btn btn-primary btn-lg">Bidali CV</button></small>
+                        <td><a href="borrar/{{$administratzailea->email}}"id="bidaliCV" class="btn btn-primary btn-lg">Delete</a></td>
                       <!-- <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> -->
                     </div>
                   </div>

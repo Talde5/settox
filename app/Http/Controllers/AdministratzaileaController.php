@@ -72,7 +72,12 @@ class AdministratzaileaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-  
+   public function delete($email)
+    {
+        administratzaileak::destroy($email);
+        return redirect('/administratzailea/irakasleak');
+    }
+
 
 
 

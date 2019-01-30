@@ -65,6 +65,8 @@ Route::post('create', 'AdministratzaileaController@store');
 
     Route::get('/administratzailea/irakasleak', 'AdministratzaileaController@Irakasleak');
 
+
+    Route::get('/administratzailea/borrar/{email}', 'AdministratzaileaController@delete');
     
     Route::get('/administratzailea/irakasleak/sortu', 'AdministratzaileaController@IrakasleakSortu');
     
