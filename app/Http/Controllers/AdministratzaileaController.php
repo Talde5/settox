@@ -18,6 +18,22 @@ class AdministratzaileaController extends Controller
         //
         return view('administratzailea');
     }
+    public function Ikasleak(){
+       // $ikasleak = ikasleak::where('egoera', 1)->get();
+
+        $ikasleak = DB::table('perfila')
+        ->whereIn('email', function($query)
+        {
+            $query->select(DB::raw('email'))
+                  ->from('ikasleak')
+                  ->where('egoera', 1);
+        })
+        ->get();
+        
+
+        return view('administratzaileaIkasleak', compact('ikasleak'));
+
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -42,28 +58,24 @@ class AdministratzaileaController extends Controller
         return view('administratzaileaIrakaslea');
     }
 
-    public function create()
-    {
-        return view('create');
+    
+    public function IrakasleakSortu(){
+        return view('administratzaileaIrakasleaSortu');
     }
+    public function insert(Request $request)
+    {     
+        $Administratzailea= new administratzaileak();
+        $Administratzailea->email= $request['email'];
+        $Administratzailea->pasahitza= $request['pasahitza'];
+        $Administratzailea->mota= $request['mota'];
+        $Administratzailea->egoera= $request['egoera'];
+        $Administratzailea->departamentua= $request['departamentua'];
 
-    public function store()
-    {
-        $this->validate(request(), [
-            
-            'email' => 'required|email',
-            'pasahitza' => 'required',
-          	 'mota' => 'required',
-          	 'egoera' => 'required',
-            'departamentua' => 'required'
-        ]);
-      
-        
-        $Administratzaileak = Administratzaileak::create(request([ 'email', 'pasahitza','mota','egoera','departamentua']));
-        
-        
-        
-        return redirect()->to('/create');
+    // add other fields
+    $Administratzailea->save();
+
+
+        return redirect('/administratzailea/irakasleak/sortu');
     }
 
     /**
