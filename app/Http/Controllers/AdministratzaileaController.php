@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use App\Models\administratzaileak;
 use Illuminate\Http\Request;
+
 
 class AdministratzaileaController extends Controller
 {
@@ -66,7 +68,7 @@ class AdministratzaileaController extends Controller
     {     
         $Administratzailea= new administratzaileak();
         $Administratzailea->email= $request['email'];
-        $Administratzailea->pasahitza= $request['pasahitza'];
+        $Administratzailea->pasahitza= Hash::make($request['pasahitza']);
         $Administratzailea->mota= $request['mota'];
         $Administratzailea->egoera= $request['egoera'];
         $Administratzailea->departamentua= $request['departamentua'];
