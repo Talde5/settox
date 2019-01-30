@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->integer('rol')->default('2');
+            $table->tinyInteger('egoera')->default('1');
         });
     }
 

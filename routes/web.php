@@ -12,9 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
-
 
 
 //Route::group(['middleware' => 'auth'], function () {
@@ -69,9 +68,16 @@ Route::post('create', 'AdministratzaileaController@store');
     Route::get('/administratzailea/borrar/{email}', 'AdministratzaileaController@delete');
     
     Route::get('/administratzailea/irakasleak/sortu', 'AdministratzaileaController@IrakasleakSortu');
+
+    Route::post('insert', 'AdministratzaileaController@insert')->name('insert');
+
     
     Route::get('/administratzailea/ikasleak', 'AdministratzaileaController@Ikasleak');
     
     
 
 //});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
