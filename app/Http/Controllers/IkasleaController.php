@@ -53,6 +53,10 @@ class IkasleaController extends Controller
         return view('ikasleaInteresa', compact('eskaintzak'));
     }
 
+    public function CV(){
+        return view('ikasleaCV');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
