@@ -82,7 +82,7 @@ return [
     |
     */
     'extension_detector' => [
-        'xlsx'     => Excel::XLSX,
+      /*  'xlsx'     => Excel::XLSX,
         'xlsm'     => Excel::XLSX,
         'xltx'     => Excel::XLSX,
         'xltm'     => Excel::XLSX,
@@ -96,7 +96,7 @@ return [
         'htm'      => Excel::HTML,
         'html'     => Excel::HTML,
         'csv'      => Excel::CSV,
-        'tsv'      => Excel::TSV,
+        'tsv'      => Excel::TSV,*/
 
         /*
         |--------------------------------------------------------------------------
