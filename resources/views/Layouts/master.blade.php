@@ -32,5 +32,6 @@
     <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ URL::asset('js/addRemoveInputTitulazioak.js')}}"></script>
     <script src="{{ URL::asset('js/addRemoveInputHizkuntzak.js')}}"></script>
+    
   </body>
 </html>

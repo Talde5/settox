@@ -11,46 +11,46 @@
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="fname" name="name" type="text" placeholder="{{$perfila['izena']}}" class="form-control">
+                                <input id="fname" name="name" type="text" placeholder="Izena" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="lname" name="name" type="text" placeholder="{{$perfila->apellidos}}" class="form-control">
+                                <input id="lname" name="name" type="text" placeholder="Abizena" class="form-control">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="email" name="email" type="text" placeholder="{{$perfila->email}}" class="form-control">
+                                <input id="email" name="email" type="text" placeholder="E-maila" class="form-control">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="phone" name="phone" type="text" placeholder="{{$perfila['dni']}}" class="form-control">
+                                <input id="phone" name="phone" type="text" placeholder="NAN" class="form-control">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="phone" name="phone" type="textbox" placeholder="{{$perfila['jaiotze_Data']}}" class="form-control">
+                                <input id="phone" name="phone" type="textbox" placeholder="Jaiotze Data" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="phone" name="phone" type="text" placeholder="{{$perfila['helbidea']}}" class="form-control">
+                                <input id="phone" name="phone" type="text" placeholder="Helbidea" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="phone" name="phone" type="text" placeholder="{{$perfila['kontaktua']}}" class="form-control">
+                                <input id="phone" name="phone" type="text" placeholder="Kontaktua" class="form-control">
                             </div>
                         </div>
 

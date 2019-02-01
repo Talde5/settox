@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    var counter = 2;
+    var counter = ($('div > .TextBoxHizkuntza').length+1);
 		
     $("#addButton1").click(function () {
 				
@@ -10,10 +10,10 @@ $(document).ready(function(){
 	}   
 		
 	var newTextBoxHizkuntza = $(document.createElement('div'))
-	     .attr("id", 'TextBoxHizkuntza' + counter);
+	     .attr("class", 'TextBoxHizkuntza');
                 
-	newTextBoxHizkuntza.after().html('<br/><input name="hizkuntza'+ counter +'" type="text" class="form-control" id="hizkuntza'+ counter +'"><br/>'
-		+'<br/><input name="maila'+ counter +'" type="text"  class="form-control" id="maila'+ counter +'"><br/>');
+	newTextBoxHizkuntza.after().html('<br/><input name="hizkuntza'+ counter +'" type="text" class="form-control hizkuntza" placeholder="Hizkuntza"><br/>'
+		+'<br/><input name="maila'+ counter +'" type="text"  class="form-control maila" placeholder="Maila"><br/>');
 	
             
 	newTextBoxHizkuntza.appendTo("#TextBoxesGroup2");
@@ -30,7 +30,7 @@ $(document).ready(function(){
         
 	counter--;
 			
-        $("#TextBoxHizkuntza" + counter).remove();
+        $(".TextBoxHizkuntza:last-child").remove();
 			
      });
   });
