@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\perfila;
@@ -23,10 +23,11 @@ class IkasleaController extends Controller
         return view('ikaslea', compact('eskaintzak'));
     }
     public function Perfila(){
-        //$user = Auth::user();
-        $perfila = perfila::where('email', 'ikaslea@ikaslea.com') -> first();//$user -> email)
+        $user = Auth::user();
+        $perfila = perfila::where('email', $user->email) -> first();//$user -> email)
         //dd($perfila);
-        return view('ikasleaPerfila', compact('perfila'));
+
+        return view('ikasleaPerfila', compact('perfila', 'user'));
     }
 
     public function Interesa(){
@@ -65,10 +66,20 @@ class IkasleaController extends Controller
     public function create()
     {
         //
+        Auth::user();
+
+
+        return view('ikasleaPerfila', compact('users'));
     }
-    public function baja($email)
+    public function baja(Request $request)
     {
-        
+    	$egoera= '0';
+        $user =  Auth()->user();
+
+     $user->egoera=$egoera;
+     $user->save();
+
+         return redirect('/');
     }
 
 
@@ -89,9 +100,12 @@ class IkasleaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($email)
     {
-        //
+       $user = DB::table('ikasleak');
+
+		echo $user->email;
+
     }
 
     /**

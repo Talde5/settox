@@ -20,6 +20,8 @@
         </div>
         <div class="col-lg-9">
             <div class="row">
+              String[] listString = [ "sdgsd", "dgsdys", "dfgsd"];
+              for (String ander : listString)
           
                 @foreach ($administratzaileak as $administratzailea)
                 <div class="col-lg-4 col-md-8 mb-4 carta">

@@ -20,7 +20,8 @@ Route::get('/', function () {
 
     Route::get('/ikaslea', 'IkasleaController@Index');
     //X
-    
+    Route::post('baja', 'IkasleaController@baja')->name('baja');
+
 
     Route::get('/ikaslea/perfila', 'IkasleaController@Perfila');
     
