@@ -87,6 +87,11 @@ class IkasleaController extends Controller
     {
         //
     }
+    public function baja($email)
+    {
+        
+    }
+
 
     /**
      * Store a newly created resource in storage.
