@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\DB;
 use App\Models\perfila;
 use App\Models\eskaintzak;
 use App\Models\erlazioa;
+use App\Models\hizkuntza;
+use App\Models\titulazioa;
+use App\Models\interesko_Datuak;
+
 
 class IkasleaController extends Controller
 {
@@ -23,11 +27,22 @@ class IkasleaController extends Controller
         return view('ikaslea', compact('eskaintzak'));
     }
     public function Perfila(){
+<<<<<<< HEAD
         $user = Auth::user();
         $perfila = perfila::where('email', $user->email) -> first();//$user -> email)
         //dd($perfila);
 
         return view('ikasleaPerfila', compact('perfila', 'user'));
+=======
+        //$user = Auth::user();
+        $perfila = perfila::where('email', 'ikasl@ikaslea.com') -> first();//$user -> email)
+        //dd($perfila);
+        if (is_null($perfila)){
+            return view('ikasleaPerfilaCreate');
+        }else {
+           return view('ikasleaPerfilaUpdate', compact('perfila')); 
+        }
+>>>>>>> 139eb0ea5d2c548efc506da8ac902ad850a5a1ff
     }
 
     public function Interesa(){
@@ -55,7 +70,20 @@ class IkasleaController extends Controller
     }
 
     public function CV(){
-        return view('ikasleaCV');
+        //$user = Auth::user();
+        $perfila = perfila::where('email', 'ikaslea@ikaslea.com') -> first();
+
+        $titulazioak = titulazioa::where('email', 'ikaslea@ikaslea.com') ->get();
+        $hizkuntzak = hizkuntza::where('email', 'ikaslea@ikaslea.com')->get();
+        $interesak = interesko_Datuak::where('email', 'ikaslea@ikaslea.com')->first();
+
+        if(isset($perfila) && isset($titulazioak) && isset($hizkuntzak) && isset($interesak)){
+            return view('ikasleaCVUpdate', compact('perfila', 'titulazioak', 'hizkuntzak', 'interesak'));
+        } else {
+          return view('ikasleaCVCreate');  
+        }
+
+        
     }
 
     /**

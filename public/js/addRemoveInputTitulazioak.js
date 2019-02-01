@@ -1,8 +1,11 @@
 
-
+//alert(($('div > a').length)+1);
+//var $titu = $('.titulazioa').toArray().length;
+//console.log("Hay " + $titu + " elementos");
 $(document).ready(function(){
 
-    var counter = 2;
+    var counter = ($('div > .titulazioa').length+1);
+	
 		
     $("#addButton").click(function () {
 				
@@ -12,9 +15,9 @@ $(document).ready(function(){
 	}   
 		
 	var newTextBoxTitulazioa = $(document.createElement('div'))
-	     .attr("id", 'TextBoxTitulazioa' + counter);
+	     .attr("class", 'TextBoxTitulazioa');
                 
-	newTextBoxTitulazioa.after().html('<br/><input name="titulazioa'+ counter +'" type="text"  class="form-control" id="titulazioa'+ counter +'"><br/>');
+	newTextBoxTitulazioa.after().html('<br/><input name="titulazioa'+ counter +'" type="text"  class="form-control titulazioa" placeholder="Titulazioa"><br/>');
 	
             
 	newTextBoxTitulazioa.appendTo("#TextBoxesGroup1");
@@ -31,7 +34,7 @@ $(document).ready(function(){
         
 	counter--;
 			
-        $("#TextBoxTitulazioa" + counter).remove();
+        $(".TextBoxTitulazioa:last-child").remove();
 			
      });
   });
