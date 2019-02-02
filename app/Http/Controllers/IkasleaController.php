@@ -27,13 +27,7 @@ class IkasleaController extends Controller
         return view('ikaslea', compact('eskaintzak'));
     }
     public function Perfila(){
-<<<<<<< HEAD
-        $user = Auth::user();
-        $perfila = perfila::where('email', $user->email) -> first();//$user -> email)
-        //dd($perfila);
 
-        return view('ikasleaPerfila', compact('perfila', 'user'));
-=======
         //$user = Auth::user();
         $perfila = perfila::where('email', 'ikasl@ikaslea.com') -> first();//$user -> email)
         //dd($perfila);
@@ -42,7 +36,7 @@ class IkasleaController extends Controller
         }else {
            return view('ikasleaPerfilaUpdate', compact('perfila')); 
         }
->>>>>>> 139eb0ea5d2c548efc506da8ac902ad850a5a1ff
+
     }
 
     public function Interesa(){
