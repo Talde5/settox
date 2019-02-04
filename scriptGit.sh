@@ -26,7 +26,7 @@ else
     cd $DIRECTORIO
     git pull origin master
     git add .
-    git commit -m "$DIA" + "$HORA"
+    git commit -m "$DIA"
 	echo " $DIA -  $HORA"
     git push -u origin master 
 fi
