@@ -16,7 +16,7 @@ then
    git pull origin master
    git add .
    git commit -m "$DIA" 
-    echo "$DIA"
+    echo "$DIA - $HORA"
    git push -u origin master
    
    
