@@ -60,7 +60,7 @@
                             <div class="col-md-8" id="TextBoxesGroup1">
                                 
                                 <div class="TextBoxTitulazioa">
-                                    <input name="titulazioa" placeholder="Titulazioa" type="text"  class="form-control titulazioa" ><br/> 
+                                    <input name="titulazioa[]" placeholder="Titulazioa" type="text"  class="form-control titulazioa" ><br/> 
                                     
                                 </div>
                                
@@ -80,8 +80,8 @@
                             <div class="col-md-8" id="TextBoxesGroup2">
                                 <!--HIzkuntzak-->
                                 <div class="TextBoxHizkuntza">
-                                    <input hizkuntza name="hizkuntza" type="text" class="form-control hizkuntza" placeholder="Hizkuntza"><br/>
-                                    <input name="maila" type="text"  class="form-control maila" placeholder="Maila"><br/>
+                                    <input hizkuntza name="hizkuntza[]" type="text" class="form-control hizkuntza" placeholder="Hizkuntza"><br/>
+                                    <input name="maila[]" type="text"  class="form-control maila" placeholder="Maila"><br/>
                                 </div>
 
                             </div>
