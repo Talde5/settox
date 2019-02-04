@@ -33,6 +33,8 @@ Route::get('/', function () {
     
     
     Route::get('/ikaslea/CV', 'IkasleaController@CV');
+
+    Route::post('CVSortu', 'IkasleaController@CVSortu')->name('CVSortu');
     
     
 //***************************IrakasleaController********************
@@ -54,10 +56,6 @@ Route::get('/', function () {
 
 
 //*****************AdministratzaileaController***********************
-
-
-Route::get('/create', 'AdministratzaileaController@create');
-Route::post('create', 'AdministratzaileaController@store');
 
 
     Route::get('/administratzailea', 'AdministratzaileaController@Index');

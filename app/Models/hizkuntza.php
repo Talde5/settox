@@ -9,6 +9,8 @@ class hizkuntza extends Model
     protected $table = 'hizkuntza';
 
     protected $primaryKey = 'email';
+    
+    public $timestamps = false;
 
     protected $fillable = ['email', 'hizkuntza', 'maila'];
 }
