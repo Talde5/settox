@@ -1,12 +1,18 @@
 #!/bin/bash
 
+#creamos las variables 
+
 DIRECTORIO=""
 DIA=`date +"%d/%m/%Y"`
 HORA=`date +"%H:%M"`
 
+#le decimos al usuario en que directorio quiere guardar el proyecto en local/servidor
+
 echo "escribe el directorio donde lo quieras guardar"
 read DIRECTORIO
 echo "$DIRECTORIO"
+
+# si el directorio que escribe existe...
 
 if [ -d "$DIRECTORIO" ]
 then
@@ -20,7 +26,7 @@ then
     echo "$DIA - $HORA"
    git push -u origin master
    
-   
+#si el directorio no existe primero lo creo hace el clone y continua   
    
 else
     echo "El directorio ${DIRECTORIO} no existe"
