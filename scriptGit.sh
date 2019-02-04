@@ -1,13 +1,14 @@
 #!/bin/bash
 
-DIRECTORIO=/var/www/html/settox
+DIRECTORIO=""
 DIA=`date +"%d/%m/%Y"`
 
-
+echo " Escribe el directorio donde quieres almacenar tu proyecto"
+read DIRECTORIO
 if [ -d "$DIRECTORIO" ]
 then
    echo "El directorio ${DIRECTORIO} existe"
-   cd /var/www/html/settox
+   cd $DIRECTORIO
    git pull origin master
    git add .
    git commit -m "$DIA"
@@ -17,8 +18,8 @@ then
    
 else
     echo "El directorio ${DIRECTORIO} no existe"
-    git clone https://github.com/Talde5/settox /var/www/html/settox
-    cd /var/www/html/settox
+    git clone https://github.com/Talde5/settox $DIRECTORIO
+    cd $DIRECTORIO
     git pull origin master
     git add .
     git commit -m "$DIA"
