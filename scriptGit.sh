@@ -2,9 +2,12 @@
 
 DIRECTORIO=""
 DIA=`date +"%d/%m/%Y"`
+HORA=`date +"%H:%M"`
 
 echo " Escribe el directorio donde quieres almacenar tu proyecto"
 read DIRECTORIO
+echo "$DIRECTORIO"
+
 if [ -d "$DIRECTORIO" ]
 then
    echo "El directorio ${DIRECTORIO} existe"
@@ -12,6 +15,7 @@ then
    git pull origin master
    git add .
    git commit -m "$DIA"
+	echo " $DIA -  $HORA"
    git push -u origin master
    
    
@@ -22,7 +26,8 @@ else
     cd $DIRECTORIO
     git pull origin master
     git add .
-    git commit -m "$DIA"
+    git commit -m "$DIA" + "$HORA"
+	echo " $DIA -  $HORA"
     git push -u origin master 
 fi
 
