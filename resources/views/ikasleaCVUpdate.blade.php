@@ -87,39 +87,7 @@
                                 </div>
                                 @endforeach
                             </div>
-<<<<<<< HEAD
-                            <div class="form-group">
-                            
-                                <div class="col-md-8">
-                                    <textarea name="lanEsperientzia" class="form-control" placeholder="{{$interesak->lan_Esperientzia}}" rows="4"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <legend class="col-md-8">Gida Baimena</legend>
-                                <div class="col-md-8">
-                                    <label class="form-check-label" >Ez<input id="phone" name="phone" type="radio" value="0" class="form-control radio-inline" {{ ($interesak->gida_Baimena=="0")? "checked" : "" }}></label>
-                                    <label class="form-check-label" >Bai<input id="phone" name="phone" type="radio" value="1" class="form-control radio-inline" {{ ($interesak->gida_Baimena=="1")? "checked" : "" }}></label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <legend class="col-md-8">Kotxea</legend>
-                                <div class="col-md-8">
-                                    <label class="form-check-label" >Ez<input id="phone" name="phone" type="radio" value="0" class="form-control radio-inline" {{ ($interesak->kotxea=="0")? "checked" : "" }}></label>
-                                    <label class="form-check-label" >Bai<input id="phone" name="phone" type="radio" value="1" class="form-control radio-inline" {{ ($interesak->kotxea=="1")? "checked" : "" }}></label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                
-                                <div class="col-md-8">
-                                    <input id="phone" name="phone" type="text" placeholder="{{$interesak->erabilgarritasuna}}" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                
-                                <div class="col-md-8">
-                                    <textarea name="lanEsperientzia" class="form-control" placeholder="{{$interesak->zure_Deskripzioa}}" rows="4"></textarea>
-                                </div>
-=======
+
                             <div class="col-md-8">
                                 <input type='button' value='Hizkuntza gehitu' id='addButton1' class="btn btn-primary btn-lg">
                                 <input type='button' value='Hizkuntza kendu' id='removeButton1' class="btn btn-primary btn-lg">
@@ -136,7 +104,7 @@
                             <div class="col-md-8">
                                 <label class="form-check-label" >Ez<input  name="gida_baimena" type="radio" value="0" class="form-control radio-inline" {{ ($interesak->gida_Baimena=="0")? "checked" : "" }}></label>
                                 <label class="form-check-label" >Bai<input  name="gida_baimena" type="radio" value="1" class="form-control radio-inline" {{ ($interesak->gida_Baimena=="1")? "checked" : "" }}></label>
->>>>>>> 75ed5ac47c468bc47c16b48c1d99684b12ea0fed
+
                             </div>
                         </div>
                         <div class="form-group">

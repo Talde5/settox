@@ -29,15 +29,12 @@ class IkasleaController extends Controller
     }
     public function Perfila(){
 
-<<<<<<< HEAD
+
         $email = Auth::user()->email;        
-        $perfila = perfila::where('email', '$email') -> first();//$user -> email)
+        $perfila = perfila::where('email', '$email') -> first();
         //dd($email);
-=======
-        //$user = Auth::user();
-        $perfila = perfila::where('email', 'ikaslea@ikaslea.com') -> first();//$user -> email)
-        //dd($perfila);
->>>>>>> 75ed5ac47c468bc47c16b48c1d99684b12ea0fed
+
+       
         if (is_null($perfila)){
             return view('ikasleaPerfilaCreate');
         }else {

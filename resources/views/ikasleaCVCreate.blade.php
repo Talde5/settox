@@ -93,55 +93,42 @@
                         <div class="form-group">
                             
                             <div class="col-md-8">
-<<<<<<< HEAD
-                                <textarea name="lanEsperientzia" class="form-control" placeholder="Lan Esperientzia" rows="4"></textarea>
-=======
+
                                 <textarea name="lan_Esperientzia" class="form-control" placeholder="Lan Esperientzia" rows="4"></textarea>
->>>>>>> 75ed5ac47c468bc47c16b48c1d99684b12ea0fed
                             </div>
                         </div>
                         <div class="form-group">
                             <legend class="col-md-8">Gida Baimena</legend>
                             <div class="col-md-8">
-<<<<<<< HEAD
-                                <label class="form-check-label" >Ez<input id="phone" name="phone" type="radio" value="0" class="form-control radio-inline"></label>
-                                <label class="form-check-label" >Bai<input id="phone" name="phone" type="radio" value="1" class="form-control radio-inline"></label>
-=======
+
                                 <label class="form-check-label" >Ez<input  name="gida_baimena" type="radio" value="0" class="form-control radio-inline"></label>
                                 <label class="form-check-label" >Bai<input  name="gida_Baimena" type="radio" value="1" class="form-control radio-inline"></label>
->>>>>>> 75ed5ac47c468bc47c16b48c1d99684b12ea0fed
+
                             </div>
                         </div>
                         <div class="form-group">
                             <legend class="col-md-8">Kotxea</legend>
                             <div class="col-md-8">
-<<<<<<< HEAD
-                                <label class="form-check-label" >Ez<input id="phone" name="phone" type="radio" value="0" class="form-control radio-inline"></label>
-                                <label class="form-check-label" >Bai<input id="phone" name="phone" type="radio" value="1" class="form-control radio-inline"></label>
-=======
+
                                 <label class="form-check-label" >Ez<input  name="kotxea" type="radio" value="0" class="form-control radio-inline"></label>
                                 <label class="form-check-label" >Bai<input name="kotxea" type="radio" value="1" class="form-control radio-inline"></label>
->>>>>>> 75ed5ac47c468bc47c16b48c1d99684b12ea0fed
+
                             </div>
                         </div>
                         <div class="form-group">
                             
                             <div class="col-md-8">
-<<<<<<< HEAD
-                                <input id="phone" name="phone" type="text" placeholder="Erabilgarritasuna" class="form-control">
-=======
+
                                 <input name="erabilgarritasuna" type="text" placeholder="Erabilgarritasuna" class="form-control">
->>>>>>> 75ed5ac47c468bc47c16b48c1d99684b12ea0fed
+
                             </div>
                         </div>
                         <div class="form-group">
                             
                             <div class="col-md-8">
-<<<<<<< HEAD
-                                <textarea name="lanEsperientzia" class="form-control" placeholder="Zure Deskribapena" rows="4"></textarea>
-=======
+
                                 <textarea name="deskribapena" class="form-control" placeholder="Zure Deskribapena" rows="4"></textarea>
->>>>>>> 75ed5ac47c468bc47c16b48c1d99684b12ea0fed
+
                             </div>
                         </div>
 
