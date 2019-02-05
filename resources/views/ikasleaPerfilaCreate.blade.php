@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
-                <form class="form-horizontal" method="post">
+                <form class="form-horizontal" method="post" action="{{route('perfilaSortu')}}">
                     {{ csrf_field() }}
                     <fieldset>
                         <legend class="text-center header">Perfila</legend>

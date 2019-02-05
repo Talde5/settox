@@ -25,6 +25,8 @@ Route::get('/', function () {
 
     Route::get('/ikaslea/perfila', 'IkasleaController@Perfila');
     
+    Route::post('perfilaSortu', 'IkasleaController@perfilaSortu')->name('perfilaSortu');
+    Route::post('perfilaAldatu', 'IkasleaController@perfilaAldatu')->name('perfilaAldatu');
     
     //ikasleaEskaintzak ez da beharrezkoa indexean egongo delako
     
@@ -35,6 +37,7 @@ Route::get('/', function () {
     Route::get('/ikaslea/CV', 'IkasleaController@CV');
 
     Route::post('CVSortu', 'IkasleaController@CVSortu')->name('CVSortu');
+    Route::post('CVAldatu', 'IkasleaController@CVAldatu')->name('CVAldatu');
     
     
 //***************************IrakasleaController********************
