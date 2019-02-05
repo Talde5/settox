@@ -44,13 +44,13 @@
                           <h4 class="card-title">
                             {{ $user->izena }} {{ $user->apellidos }}
                           </h4>
-                          <p class="card-text">{{ $ikaslea->dni }}</p>
-                          <p class="card-text">{{ $ikaslea->jaiotze_Data}}</p>
-                          <p class="card-text">{{ $ikaslea->helbidea }}</p>
+                          <p class="card-text">{{ $user->dni }}</p>
+                          <p class="card-text">{{ $user->jaiotze_Data}}</p>
+                          <p class="card-text">{{ $user->helbidea }}</p>
                         </div>
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                          <p class="card-text">{{ $ikaslea->kontaktua }}</p>
-                          <p class="card-text">{{ $ikaslea->email }}</p>
+                          <p class="card-text">{{ $user->kontaktua }}</p>
+                          <p class="card-text">{{ $user->email }}</p>
                           
                         
                         </div>

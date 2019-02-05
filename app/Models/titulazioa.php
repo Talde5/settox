@@ -10,5 +10,7 @@ class titulazioa extends Model
 
     protected $primaryKey = 'email';
 
+    public $timestamps = false;
+
     protected $fillable = ['email', 'titulazio_Izena'];
 }

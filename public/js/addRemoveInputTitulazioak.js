@@ -17,7 +17,7 @@ $(document).ready(function(){
 	var newTextBoxTitulazioa = $(document.createElement('div'))
 	     .attr("class", 'TextBoxTitulazioa');
                 
-	newTextBoxTitulazioa.after().html('<br/><input name="titulazioa'+ counter +'" type="text"  class="form-control titulazioa" placeholder="Titulazioa"><br/>');
+	newTextBoxTitulazioa.after().html('<br/><input name="titulazioa[]" type="text"  class="form-control titulazioa" placeholder="Titulazioa"><br/>');
 	
             
 	newTextBoxTitulazioa.appendTo("#TextBoxesGroup1");

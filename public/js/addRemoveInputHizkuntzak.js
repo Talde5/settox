@@ -12,8 +12,8 @@ $(document).ready(function(){
 	var newTextBoxHizkuntza = $(document.createElement('div'))
 	     .attr("class", 'TextBoxHizkuntza');
                 
-	newTextBoxHizkuntza.after().html('<br/><input name="hizkuntza'+ counter +'" type="text" class="form-control hizkuntza" placeholder="Hizkuntza"><br/>'
-		+'<br/><input name="maila'+ counter +'" type="text"  class="form-control maila" placeholder="Maila"><br/>');
+	newTextBoxHizkuntza.after().html('<br/><input name="hizkuntza[]" type="text" class="form-control hizkuntza" placeholder="Hizkuntza"><br/>'
+		+'<br/><input name="maila[]" type="text"  class="form-control maila" placeholder="Maila"><br/>');
 	
             
 	newTextBoxHizkuntza.appendTo("#TextBoxesGroup2");

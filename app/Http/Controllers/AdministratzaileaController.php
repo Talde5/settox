@@ -25,17 +25,18 @@ class AdministratzaileaController extends Controller
     public function Ikasleak(){
        // $ikasleak = ikasleak::where('egoera', 1)->get();
 
-        $ikasleak = DB::table('perfila')
+        $users = DB::table('users')
         ->whereIn('email', function($query)
         {
             $query->select(DB::raw('email'))
-                  ->from('ikasleak')
-                  ->where('egoera', 1);
+                  ->from('users')
+                  ->where('egoera', 1)
+                  ->where('rol',2);
         })
         ->get();
         
 
-        return view('administratzaileaIkasleak', compact('ikasleak'));
+        return view('administratzaileaIkasleak', compact('users'));
 
     }
 
@@ -47,8 +48,8 @@ class AdministratzaileaController extends Controller
     public function irakasleak()
     {
         //if(!$request->ajax())return redirect('/administratzailea/irakasleak');
-        $administratzaileak = DB::table('administratzaileak')->where ('mota',1)-> get();
-        return view('administratzaileaIrakaslea', compact('administratzaileak'));
+        $users = DB::table('users')->where ('rol',1)-> get();
+        return view('administratzaileaIrakaslea', compact('users'));
     }
     /**
      * Store a newly created resource in storage.
@@ -79,7 +80,7 @@ class AdministratzaileaController extends Controller
     $Administratzailea->save();
 
 
-        return redirect('/administratzailea/irakasleak/sortu');
+        return redirect('/administratzailea/irakasleak');
     }
 
     /**

@@ -80,17 +80,11 @@ class IrakasleaController extends Controller
     }
 
     public function Ikasleak(){
-        $ikasleak = DB::table('perfila')
-        ->whereIn('email', function($query)
-        {
-            $query->select(DB::raw('email'))
-                  ->from('ikasleak')
-                  ->where('egoera', 1);
-                  //and 'departamentua' $user -> departamentua
-        })
-        ->get();
+       $users = DB::table('users')->where ('rol',2)-> get();
+       
+        return view('administratzaileaIkasleak', compact('users'));
 
-        return view('administratzaileaIkasleak', compact('ikasleak'));
+
     }
     /**
      * Store a newly created resource in storage.

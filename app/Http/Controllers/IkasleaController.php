@@ -28,9 +28,15 @@ class IkasleaController extends Controller
     }
     public function Perfila(){
 
+<<<<<<< HEAD
         $email = Auth::user()->email;        
         $perfila = perfila::where('email', '$email') -> first();//$user -> email)
         //dd($email);
+=======
+        //$user = Auth::user();
+        $perfila = perfila::where('email', 'ikasl@ikaslea.com') -> first();//$user -> email)
+        //dd($perfila);
+>>>>>>> 75ed5ac47c468bc47c16b48c1d99684b12ea0fed
         if (is_null($perfila)){
             return view('ikasleaPerfilaCreate');
         }else {
@@ -50,15 +56,7 @@ class IkasleaController extends Controller
         })
         ->get();
 
-        /*dd($eskaintzak);
-        $erlazioak = erlazioa::where('email', 'ikaslea@ikaslea.com') -> get();//$user -> email)
-        //dd($erlazioa);// ->get('idEskaintzak'));
-        foreach ($erlazioak as $erlazioa) {
-            $idEsk = $erlazioa -> idEskaintzak;
-        }
-        dd($idEsk);
-
-        $eskaintzak = eskaintzak::whereIn('idEskaintzak', $erlazioa -> idEskaintzak) -> get();*/
+        
 
         return view('ikasleaInteresa', compact('eskaintzak'));
     }
@@ -78,6 +76,47 @@ class IkasleaController extends Controller
         }
 
         
+    }
+    public function CVSortu(Request $request){
+        dd($request);
+        $perfila= new perfila();
+        $perfila->email= $request['email'];
+        $perfila->dni= $request['dni'];
+        $perfila->izena= $request['izena'];
+        $perfila->apellidos= $request['abizena'];
+        $perfila->jaiotze_Data= $request['jaiotze_Data'];
+        $perfila->helbidea= $request['helbidea'];
+        $perfila->kontaktua= $request['kontaktua'];
+
+        // add other fields
+        $perfila->save();
+        foreach (Request::get('titulazioa') as $titulazioa) {
+            $titulazioa= new titulazioa();
+            $titulazioa->email= $request['email'];
+            $titulazioa->titulazio_Izena= $request['titulazioa'];
+            //dd($titulazioa);
+            $titulazioa->save();
+        }
+
+        foreach (Request::get('hizkuntza') as $hizkuntza) {
+            $hizkuntza= new hizkuntza();
+            $hizkuntza->email= $request['email'];
+            $hizkuntza->hizkuntza= $request['hizkuntza'];
+            $hizkuntza->maila= $request['maila'];
+
+           $hizkuntza->save();
+        }
+        $interesa= new interesko_Datuak();
+        $interesa->email= $request['email'];
+        $interesa->lan_Esperientzia= $request['lan_Esperientzia'];
+        $interesa->gida_Baimena= $request['gida_Baimena'];
+        $interesa->kotxea= $request['kotxea'];
+        $interesa->erabilgarritasuna= $request['erabilgarritasuna'];
+        $interesa->zure_Deskripzioa= $request['deskribapena'];
+
+        $interesa->save();
+
+        return redirect('/ikaslea/CV');
     }
 
     /**

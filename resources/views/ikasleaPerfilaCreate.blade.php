@@ -5,6 +5,7 @@
         <div class="col-md-12">
             <div class="well well-sm">
                 <form class="form-horizontal" method="post">
+                    {{ csrf_field() }}
                     <fieldset>
                         <legend class="text-center header">Perfila</legend>
 
