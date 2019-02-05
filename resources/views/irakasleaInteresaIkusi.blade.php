@@ -1,98 +1,59 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('Layouts.master')
 
-        <title>Laravel</title>
+@section('content')
+    <!-- <div class="row">
+        <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data" class="col-12">
+                {{ csrf_field() }}
+                Choose your xls/csv File : <input type="file" name="file" class="form-control">
+             
+                <input type="submit" value="Gehitu Ikasleak" class="btn btn-primary btn-lg" style="margin-top: 3%">
+        </form>
+    </div> -->
+    <div class="row">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+        
+        <div class="col-lg-9">
+            <div class="row">
+                @foreach ($interesak as $i => $interesa)
+                <div class="col-lg-4 col-md-8 mb-4 carta">
+                  <div class="card h-100">
+                    <div class="card-header">
+                            <ul class="nav nav-tabs card-header-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home{{$i}}" role="tab" aria-controls="home" aria-selected="true">Ikaslea</a>
+                                </li>
+                              <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile{{$i}}" role="tab" aria-controls="profile" aria-selected="false">Lan Eskaintza</a>
+                        </li>
+                            </ul>
+                            </div>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+                    <div class="card-body">
+                      <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home{{$i}}" role="tabpanel" aria-labelledby="home-tab">
+                          <h4 class="card-title">
+                            {{$interesa -> email}}
+                          </h4>
+                          
+                          <p class="card-text">{{$interesa -> izena}}</p>
+                          <p class="card-text">{{$interesa -> apellidos}}</p>
+                          <p class="card-text">{{$interesa -> dni}}</p>
+                        </div>
+                        <div class="tab-pane fade" id="profile{{$i}}" role="tabpanel" aria-labelledby="profile-tab">
+                          <p class="card-text">{{$interesa -> enpresa_Izena}}</p>
+                          <p class="card-text">{{$interesa -> lan_Postua}}</p>
+                          <p class="card-text">{{$interesa -> deskripzioa}}</p>
+                        
+                        </div>
+                      
+                    </div>
+                  </div>
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+              </div>
+              @endforeach
             </div>
         </div>
-    </body>
-</html>
+    </div>
+
+@stop
+   

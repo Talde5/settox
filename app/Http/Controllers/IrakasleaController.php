@@ -92,9 +92,23 @@ class IrakasleaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function Interesa(){
+        //$user = Auth::user();
+        
+        $interesak = DB::table('erlazioa')
+                    ->select('perfila.izena', 'perfila.apellidos', 'perfila.dni', 'perfila.email', 'eskaintzak.enpresa_Izena', 'eskaintzak.lan_Postua', 'eskaintzak.deskripzioa')
+                    ->join('eskaintzak', 'eskaintzak.idEskaintzak', '=', 'erlazioa.idEskaintzak')
+                    ->join('perfila', 'perfila.email', '=', 'erlazioa.email')
+                    ->where('eskaintzak.departamentua', 'informatika')//$user->departamentua
+                    ->get();
+
+       
+
+
+        
+        
+
+        return view('irakasleaInteresaIkusi', compact('interesak'));
     }
 
     /**
