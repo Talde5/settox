@@ -6,49 +6,48 @@
             <div class="well well-sm">
                 <form class="form-horizontal" method="post">
                     <fieldset>
-                        <legend class="text-center header">CV</legend>
+                        <legend class="text-center header">Curriculum Vitae</legend>
 
                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                             <div class="col-md-8">
                                 <input id="fname" name="name" type="text" placeholder="Izena" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                            
                             <div class="col-md-8">
                                 <input id="lname" name="name" type="text" placeholder="Abizena" class="form-control">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                            
                             <div class="col-md-8">
                                 <input id="email" name="email" type="text" placeholder="E-maila" class="form-control">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
+                            
                             <div class="col-md-8">
                                 <input id="phone" name="phone" type="text" placeholder="NAN" class="form-control">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                            
                             <div class="col-md-8">
                                 <input id="phone" name="phone" type="textbox" placeholder="Jaiotze Data" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                            
                             <div class="col-md-8">
                                 <input id="phone" name="phone" type="text" placeholder="Helbidea" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                            
                             <div class="col-md-8">
                                 <input id="phone" name="phone" type="text" placeholder="Kontaktua" class="form-control">
                             </div>
@@ -56,7 +55,7 @@
 
                        <div class="form-group">
                             <!--Titulazioak-->
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                            
                             <div class="col-md-8" id="TextBoxesGroup1">
                                 
                                 <div class="TextBoxTitulazioa">
@@ -76,7 +75,7 @@
                             
                         </div>
                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                            
                             <div class="col-md-8" id="TextBoxesGroup2">
                                 <!--HIzkuntzak-->
                                 <div class="TextBoxHizkuntza">
@@ -90,6 +89,39 @@
                                 <input type='button' value='Hizkuntza kendu' id='removeButton1' class="btn btn-primary btn-lg">
                             </div>
                         </div>
+                        <div class="form-group">
+                            
+                            <div class="col-md-8">
+                                <textarea name="lanEsperientzia" class="form-control" placeholder="Lan Esperientzia" rows="4"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <legend class="col-md-8">Gida Baimena</legend>
+                            <div class="col-md-8">
+                                <label class="form-check-label" >Ez<input id="phone" name="phone" type="radio" value="0" class="form-control radio-inline"></label>
+                                <label class="form-check-label" >Bai<input id="phone" name="phone" type="radio" value="1" class="form-control radio-inline"></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <legend class="col-md-8">Kotxea</legend>
+                            <div class="col-md-8">
+                                <label class="form-check-label" >Ez<input id="phone" name="phone" type="radio" value="0" class="form-control radio-inline"></label>
+                                <label class="form-check-label" >Bai<input id="phone" name="phone" type="radio" value="1" class="form-control radio-inline"></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            
+                            <div class="col-md-8">
+                                <input id="phone" name="phone" type="text" placeholder="Erabilgarritasuna" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            
+                            <div class="col-md-8">
+                                <textarea name="lanEsperientzia" class="form-control" placeholder="Zure Deskribapena" rows="4"></textarea>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-12 text-center">
                                 <button type="submit" class="btn btn-primary btn-lg">Gorde</button>

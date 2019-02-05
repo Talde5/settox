@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Models\administratzaileak;
 use Illuminate\Http\Request;
+use App\User;
+
 
 
 class AdministratzaileaController extends Controller
@@ -66,10 +68,10 @@ class AdministratzaileaController extends Controller
     }
     public function insert(Request $request)
     {     
-        $Administratzailea= new administratzaileak();
+        $Administratzailea= new User();
         $Administratzailea->email= $request['email'];
-        $Administratzailea->pasahitza= Hash::make($request['pasahitza']);
-        $Administratzailea->mota= $request['mota'];
+        $Administratzailea->password= Hash::make($request['pasahitza']);
+        $Administratzailea->rol= $request['mota'];
         $Administratzailea->egoera= $request['egoera'];
         $Administratzailea->departamentua= $request['departamentua'];
 

@@ -41,10 +41,13 @@ Route::get('/', function () {
 
     Route::post('import', 'IrakasleaController@import')->name('import');
     //X
-    
+     Route::get('/irakaslea/eskaintzak', 'IrakasleaController@Eskaintzak')->name('eskaintza');
+          Route::get('/irakaslea/sortu', 'IrakasleaController@sortu')->name('sortu');
+
+          Route::get('/irakaslea/oferta', 'IrakasleaController@oferta')->name('oferta');
 
     //Eskaintzak gehitzeko izango da
-    Route::get('/irakaslea/eskaintzak', 'IrakasleaController@Eskaintzak');
+    //Route::get('/irakaslea/eskaintzak', 'IrakasleaController@Eskaintzak');
     
     Route::get('/irakaslea/ikasleak', 'IrakasleaController@Ikasleak');
     

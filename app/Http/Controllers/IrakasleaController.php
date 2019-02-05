@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\eskaintzak;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Session;
@@ -109,10 +109,7 @@ class IrakasleaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -120,9 +117,29 @@ class IrakasleaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function oferta()
     {
-        //
+     
+
+
+        return view('irakasleaEskaintzasortu');
+   }
+    public function sortu(Request $request)
+    {
+        $eskaintzak= new eskaintzak();
+        $eskaintzak->enpresa_Izena= $request['enpresa_Izena'];
+        $eskaintzak->lan_Postua= $request['lan_Postua'];
+      
+        $eskaintzak->deskripzioa= $request['deskripzioa'];
+         $eskaintzak->plaza_Hutsak= $request['plaza_Hutsak'];
+          $eskaintzak->departamentua= $request['departamentua'];
+
+    // add other fields
+    $eskaintzak->save();
+
+
+        return redirect('irakaslea');
+   
     }
 
     /**
