@@ -38,7 +38,7 @@ yum install -y MariaDB-server MariaDB-client
 systemctl enable mariadb
 systemctl start mariadb
 systemctl status mariadb
-mysql -e "CREATE DATABASE bolsatrabajo"
+mysql -e "CREATE DATABASE settox"
 
 
 # ------------- Eliminar paginas de por defecto de httpd ------------- #
@@ -102,7 +102,7 @@ chown -R apache.apache /var/www/html
 chmod -R 777 /var/www/html/settox/storage
 composer install
 npm install
-mysql -u root -p bolsatrabajo < settox.sql
+mysql -u root -p settox < settox.sql
 npm run dev
 
 
