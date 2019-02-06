@@ -5,6 +5,7 @@ use App\Models\eskaintzak;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Session;
 use Excel;
 use File;
@@ -42,15 +43,23 @@ class IrakasleaController extends Controller
  
                     foreach ($data as $key => $value) {
                         $insert[] = [
+                        'name'  => $value->izena,  
                         'email' => $value->email,
-                        'pasahitza' => $value->pasahitza,
-                        'egoera' => $value->egoera,
+                        'password' => Hash::make($value->pasahitza),
+                        'departamentua' => $value->departamentua,
                         ];
+                        /*$obj = new \stdClass();
+                        $obj->email = $value->email;
+                        $obj->pasahitza = $value->pasahitza;
+                        $obj->sender = 'CIFP Txurdinaga LHII';
+                        $obj->receiver = $value->izena;
+                        dd(env('MAIL_HOST'));
+                        Mail::to($value->email)->send(new DemoEmail($obj));*/
                     }
  
                     if(!empty($insert)){
  
-                        $insertData = DB::table('ikasleak')->insert($insert);
+                        $insertData = DB::table('users')->insert($insert);
                         if ($insertData) {
                             Session::flash('success', 'Your Data has successfully imported');
                         }else {                        

@@ -14,10 +14,12 @@ class CreateTitulazioaTable extends Migration
     public function up()
     {
         Schema::create('titulazioa', function (Blueprint $table) {
-            $table->string('email')->primary();
+            $table->string('email');
             $table->string('titulazio_Izena');
-            $table->foreign('email')->references('email')->on('ikasleak')->onDelete('cascade');;
+            $table->primary(array('email', 'titulazio_Izena'));
+            $table->foreign('email')->references('email')->on('users')->where('rol',2)->onDelete('cascade');
         });
+        
     }
 
     /**

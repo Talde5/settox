@@ -22,7 +22,7 @@ class CreatePerfilaTable extends Migration
             $table->timestamp('jaiotze_Data');
             $table->string('helbidea');
             $table->string('kontaktua');
-            $table->foreign('email')->references('email')->on('ikasleak')->onDelete('cascade');;
+            $table->foreign('email')->references('email')->on('users')->where('rol',2)->onDelete('cascade');
         });
     }
 

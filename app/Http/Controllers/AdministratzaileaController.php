@@ -59,7 +59,7 @@ class AdministratzaileaController extends Controller
      */
     public function borrar(Request $email)
     {
-        $administratzaileak = DB::table('Administratzaileak')->where ('email','$email')-> delete();
+        $administratzaileak = DB::table('Administratzaileak')->where ('email',$email)-> delete();
         return view('administratzaileaIrakaslea');
     }
 

@@ -81,13 +81,13 @@ class IkasleaController extends Controller
     }
 
     public function Interesa(){
-        //$user = Auth::user();
+        $user = Auth::user();
       $eskaintzak = DB::table('eskaintzak')
         ->whereIn('idEskaintzak', function($query)
         {
             $query->select(DB::raw('idEskaintzak'))
                   ->from('erlazioa')
-                  ->where('email', 'ikaslea@ikaslea.com');
+                  ->where('email', $user->email);
         })
         ->get();
 
@@ -98,11 +98,11 @@ class IkasleaController extends Controller
 
     public function CV(){
         $email = Auth::user()->email;        
-        $perfila = perfila::where('email', '$email') -> first();
+        $perfila = perfila::where('email', $email) -> first();
 
-        $titulazioak = titulazioa::where('email', '$email') ->get();
-        $hizkuntzak = hizkuntza::where('email', '$email')->get();
-        $interesak = interesko_Datuak::where('email', '$email')->first();
+        $titulazioak = titulazioa::where('email', $email) ->get();
+        $hizkuntzak = hizkuntza::where('email', $email)->get();
+        $interesak = interesko_Datuak::where('email', $email)->first();
 
         if(isset($perfila) && isset($titulazioak) && isset($hizkuntzak) && isset($interesak)){
             return view('ikasleaCVUpdate', compact('perfila', 'titulazioak', 'hizkuntzak', 'interesak'));
