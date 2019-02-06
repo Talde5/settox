@@ -76,6 +76,8 @@ Route::get('/', function () {
 
     Route::post('insert', 'AdministratzaileaController@insert')->name('insert');
 
+     /*Route::get('/administratzailea/irakasleak/sortu', function(){ return view('administratzaileaIrakasleaSortu'); })->name('IrakasleakSortu');
+    Route::post('/administratzailea/irakasleak/sortu/post', 'AdministratzaileaController@IrakasleakSortu');*/
     
     Route::get('/administratzailea/ikasleak', 'AdministratzaileaController@Ikasleak');
     

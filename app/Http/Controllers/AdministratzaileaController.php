@@ -65,6 +65,15 @@ class AdministratzaileaController extends Controller
 
     
     public function IrakasleakSortu(){
+        /* $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->departamentua = $request->departamentua;
+        $user->rol = 1;
+        $user->egoera = 1;
+        $user->save();
+        return response()->json(['success'=>'Data is successfully added']);*/
         return view('administratzaileaIrakasleaSortu');
     }
     public function insert(Request $request)
@@ -74,7 +83,6 @@ class AdministratzaileaController extends Controller
         $Administratzailea->email= $request['email'];
         $Administratzailea->password= Hash::make($request['pasahitza']);
         $Administratzailea->rol= 1;
-        $Administratzailea->egoera= 1;
         $Administratzailea->departamentua= $request['departamentua'];
 
     // add other fields
