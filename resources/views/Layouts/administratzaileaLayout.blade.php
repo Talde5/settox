@@ -17,6 +17,11 @@
     @include('Partials.administratzaileaNavbar')
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> ef4848076234cf6a2c85147d60450d452fa35ab9
 
     <div class="container">
        @yield('content')
