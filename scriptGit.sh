@@ -42,3 +42,4 @@ fi
 
 
 
+echo " Tareas completadas gracias por confiar en Settox"
