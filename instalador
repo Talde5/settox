@@ -1,18 +1,20 @@
 #!/bin/bash
 #
+
+
 echo -e "Bienvenido al proyecto de SETTOX "
-echo "Para desplegar el proyecto te solicitaremos algunos datos "
+echo "completa los siguientes datos"
 sleep 5
 
-echo "¿Cual es tu correo asociado a git?"
-read correogit
-echo "¿Cual es tu usuario de git?"
-read usergit
-echo "y tu contraseña de git"
-read gitpass
-echo -e "\e[1m \e[32mComenzamos con la instalación de todo, puede tardar varios minutos \e[0m"
+echo "¿correo de git?"
+read getGit
+echo "¿usuario de git?"
+read usuario
+echo "contraseña de git"
+read pswGit
+echo -e "\e[1m \e[32mInstalando espere por favor... \e[0m"
 sleep 5
-# ------------- Habilitando Repositorios para REMI y EPEL ------------- #
+# ------------- Habilitando Repositorios REMI y EPEL ------------- #
 
 rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
@@ -26,7 +28,7 @@ systemctl enable httpd
 systemctl status httpd
 
 
-# ------------- Instalando MariaDB Server y Client ------------- #
+# ------------- Instalando MariaDB------------- #
 
 touch /etc/yum.repos.d/MariaDB.repo
 echo "[mariadb]
@@ -41,10 +43,13 @@ systemctl status mariadb
 mysql -e "CREATE DATABASE settox"
 
 
-# ------------- Eliminar paginas de por defecto de httpd ------------- #
+# ------------- limpiando paginas de por defecto de httpd ------------- #
 
 rm -rf /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.save.conf
-# ------------- Instalando PHP ------------- #
+
+
+# -------------  PHP ------------- #
+
 yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 yum install -y epel-release yum-utils
 yum-config-manager --enable remi-php*
@@ -71,28 +76,30 @@ npm --version
 
 
 # ------------- Instalando SSH-Keyreg ------------- #
+
 #Con SSH-Keyreg lo que lograremos es que la clave plubica de ssh que generamos sea introducida en GitHub
 # sin necesidad de que tenga que hacer nada el usuario.
 
-curl https://raw.githubusercontent.com/b4b4r07/ssh-keyreg/master/bin/ssh-keyreg -o /usr/local/bin/ssh-keyreg
-chmod +x /usr/local/bin/ssh-keyreg
+#curl https://raw.githubusercontent.com/b4b4r07/ssh-keyreg/master/bin/ssh-keyreg -o /usr/local/bin/ssh-keyreg
+#chmod +x /usr/local/bin/ssh-keyreg
 
 
 # ------------- Instalando y Configurando GIT ------------- #
-yum install -y git
-git config user.email "$correogit" #Introducimos como correo de git la proporcionada por el usuario
-git config user.name "$usergit" #Configuramos el usuario de Git
 
-# ------------- Generando SSH y añadiendo a cuenta de GitHub ------------- #
+yum install -y git
+git config user.email "$getGit" #Introducimos como correo de git la proporcionada por el usuario
+git config user.name "$usuario" #Configuramos el usuario de Git
+
+# ------------- Generando SSH y vinculando a cuenta de GitHub ------------- #
 
 directorio=$PWD
 cd ~/.ssh
-echo -e "\n\n\n" | ssh-keygen -t rsa -N "" -C "$correogit" #Aquí generamos una key SSH
-'yes yes' | ssh-keyreg -u $usergit:$gitpass -p id_rsa.pub github #Con esta linea lo que hacemos es registrar el
+echo -e "\n\n\n" | ssh-keygen -t rsa -N "" -C "$getGit" #Aquí generamos una key SSH
+'yes yes' | ssh-keyreg -u $usuario:$pswGit -p id_rsa.pub github #Con esta linea lo que hacemos es registrar el
 cd "$directorio"
 
 
-# ------------- Descargando el proyecto e Instalandolo ------------- #
+# ------------- Desplegando el proyecto e Instalandolo ------------- #
 
 cd /var/www/html
 git clone https://github.com/talde5/settox.git
