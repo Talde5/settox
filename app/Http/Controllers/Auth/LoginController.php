@@ -37,7 +37,7 @@ class LoginController extends Controller
     switch ($egoera){
 
         case '0':
-            return '/welcome';
+            return '/';
         break;
 
         case '1':

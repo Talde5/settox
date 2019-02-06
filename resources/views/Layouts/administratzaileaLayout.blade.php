@@ -16,6 +16,21 @@
   <body>
     @include('Partials.administratzaileaNavbar')
 
+
+<div id="app">
+    {{ mensaje }}
+   
+    <img v-bind:src="imagen" />
+</div>
+
+
+
+
+
+ <script src="vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+
+
     <div class="container">
        @yield('content')
 

@@ -23,7 +23,7 @@ class IrakasleaController extends Controller
         //$user = Auth::user();
         $eskaintzak = eskaintzak::all() ;//-> where('departamentua', 'informatika'//$user -> departamentua);
 
-        return view('Add', compact('eskaintzak'));
+        return view('irakaslea', compact('eskaintzak'));
     }
 
     public function import(Request $request){
@@ -89,8 +89,17 @@ class IrakasleaController extends Controller
     }
 
     public function Ikasleak(){
-       $users = DB::table('users')->where ('rol',2)-> get();
-       
+      $departamentua = Auth::user()->departamentua;
+
+      $users = DB::table('users')
+                    ->select('users.*','perfila.*')
+                    ->join('perfila', 'perfila.email', '=', 'users.email')
+                    ->where('users.departamentua', $departamentua)
+                    ->where('users.rol', '2')
+                    //$user->departamentua
+                    ->get();
+
+
         return view('administratzaileaIkasleak', compact('users'));
 
 
