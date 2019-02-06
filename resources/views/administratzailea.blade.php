@@ -1,10 +1,16 @@
-@extends('Layouts.app')
+@extends('Layouts.administratzaileaLayout')
 
 @section('content')
-    <body>
-    <td><a href="/irakaslea"type="button" class="btn btn-primary btn-lg"  style='width:710px; height:215px' >Irakasleak</a></td>
 
-    <button href="/ikaslea"type="button" class="btn btn-primary btn-lg"style='width:710px; height:215px'>Ikasleak</button>
+
+
+   <a href="{{url('administratzailea/ikasleak')}}"type="button" class="btn btn-primary btn-lg"  style='width:510px; height:215px' >Ikasleak</a>
+ 
+
+  <a href="{{url('administratzailea/irakasleak')}}"type="button" class=" btn-justify-content-center btn btn-primary btn-lg"  style='width:510px; height:215px' justify-content= 'center';  >Irakasleak</a>
+       
+       
+       
+
             
-    </body>
 @endsection
