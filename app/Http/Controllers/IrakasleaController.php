@@ -85,7 +85,7 @@ class IrakasleaController extends Controller
     public function eskaintzak()
     {
         //
-        return view('irakasleaEskaintzak');
+        return view('irakasleaEskaintzaSortu');
     }
 
     public function Ikasleak(){
@@ -134,13 +134,6 @@ class IrakasleaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function oferta()
-    {
-     
-
-
-        return view('irakasleaEskaintzasortu');
-   }
     public function sortu(Request $request)
     {
         $eskaintzak= new eskaintzak();

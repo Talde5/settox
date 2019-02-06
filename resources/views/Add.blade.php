@@ -1,4 +1,4 @@
-@extends('Layouts.master')
+@extends('Layouts.irakasleaLayout')
 
 @section('content')
     <!-- <div class="row">
@@ -12,7 +12,7 @@
     <div class="row">
 
         <div class="col-lg-3">
-          <td><a href="irakaslea/oferta"id="bidaliCV" class="btn btn-primary btn-lg">Crear</a></td>
+          <td><a href="{{url('irakaslea/eskaintzak')}}"id="bidaliCV" class="btn btn-primary btn-lg">Crear</a></td>
         </div>
         <div class="col-lg-9">
             <div class="row">

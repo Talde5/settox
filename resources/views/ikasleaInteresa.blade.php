@@ -1,4 +1,4 @@
-@extends('Layouts.master')
+@extends('Layouts.ikasleaLayout')
 
 @section('content')
     <!-- <div class="row">

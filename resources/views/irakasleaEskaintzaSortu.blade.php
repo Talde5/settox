@@ -1,4 +1,4 @@
-@extends('Layouts.master')
+@extends('Layouts.irakasleaLayout')
 
 @section('content')
 

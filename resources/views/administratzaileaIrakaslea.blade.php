@@ -1,4 +1,4 @@
-@extends('Layouts.master')
+@extends('Layouts.administratzaileaLayout')
 
 @section('content')
 
@@ -19,7 +19,7 @@
         <div class="col-lg-9">
             <div class="row">
              
-                @foreach ($users as $user )
+                @foreach ($users as $i => $user )
                 <div class="col-lg-4 col-md-8 mb-4 carta">
                   <div class="card h-100">
                     <div class="card-header">

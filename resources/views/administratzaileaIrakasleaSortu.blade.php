@@ -1,4 +1,4 @@
-@extends('Layouts.master')
+@extends('Layouts.administratzaileaLayout')
 
 @section('content')
 

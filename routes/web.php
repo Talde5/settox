@@ -49,7 +49,7 @@ Route::get('/', function () {
      Route::get('/irakaslea/eskaintzak', 'IrakasleaController@Eskaintzak')->name('eskaintza');
           Route::get('/irakaslea/sortu', 'IrakasleaController@sortu')->name('sortu');
 
-          Route::get('/irakaslea/oferta', 'IrakasleaController@oferta')->name('oferta');
+     
 
     //Eskaintzak gehitzeko izango da
     //Route::get('/irakaslea/eskaintzak', 'IrakasleaController@Eskaintzak');
@@ -85,4 +85,4 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
