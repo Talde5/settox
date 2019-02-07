@@ -100,7 +100,7 @@ class IrakasleaController extends Controller
                     ->get();
 
 
-        return view('administratzaileaIkasleak', compact('users'));
+        return view('irakasleaIkasleak', compact('users'));
 
 
     }
@@ -179,8 +179,9 @@ class IrakasleaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        User::destroy($id);
+        return redirect('/irakaslea/ikasleak');
     }
 }

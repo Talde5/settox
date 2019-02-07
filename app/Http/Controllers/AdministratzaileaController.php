@@ -57,11 +57,7 @@ class AdministratzaileaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function borrar(Request $email)
-    {
-        $administratzaileak = DB::table('Administratzaileak')->where ('email',$email)-> delete();
-        return view('administratzaileaIrakaslea');
-    }
+    
 
     
     public function IrakasleakSortu(){
@@ -101,10 +97,14 @@ class AdministratzaileaController extends Controller
    public function delete($id)
     {
         User::destroy($id);
-        return redirect('/administratzailea/irakasleak');
+        return redirect('/administratzailea/ikasleak');
     }
 
-
+    public function borrar($id)
+    {
+        User::destroy($id);
+        return redirect('/administratzailea/irakasleak');
+    }
 
 
 

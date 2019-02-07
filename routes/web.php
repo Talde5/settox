@@ -56,7 +56,7 @@ Route::group(['middleware' => 'App\Http\Middleware\Ikaslea'], function(){
     //X
      Route::get('/irakaslea/eskaintzak', 'IrakasleaController@Eskaintzak')->name('eskaintza');
      Route::get('/irakaslea/sortu', 'IrakasleaController@sortu')->name('sortu');
-     Route::get('/irakaslea/ikasleak/borrar/{email}', 'AdministratzaileaController@delete');
+     Route::get('/irakaslea/ikasleak/borrar/{id}', 'IrakasleaController@delete');
 
      
 
@@ -80,7 +80,8 @@ Route::group(['middleware' => 'App\Http\Middleware\Administratzailea'], function
     Route::get('/administratzailea/irakasleak', 'AdministratzaileaController@Irakasleak');
 
 
-    Route::get('/administratzailea/borrar/{email}', 'AdministratzaileaController@delete');
+Route::get('/administratzailea/delete/{id}', 'AdministratzaileaController@delete');
+    Route::get('/administratzailea/borrar/{id}', 'AdministratzaileaController@borrar');
     
     Route::get('/administratzailea/irakasleak/sortu', 'AdministratzaileaController@IrakasleakSortu')->name('IrakasleakSortu');
 

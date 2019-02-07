@@ -45,7 +45,7 @@
                       
                     </div>
                     <div class="card-footer">
-                        <td><a href="borrar/{{$user->id}}"id="bidaliCV" class="btn btn-primary btn-lg">Ezabatu</a></td>
+                        <td><a href="delete/{{$user->id}}"id="bidaliCV" class="btn btn-primary btn-lg">Ezabatu</a></td>
                         
                       <!-- <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> -->
                     </div>
