@@ -16,6 +16,19 @@ echo -e "\e[1m \e[32mInstalando espere por favor... \e[0m"
 sleep 5
 
 
+#                                  instalacion nano 
+
+yum update
+yum upgrade
+yum install nano
+nano /etc/bashrc
+crontab -e
+sleep 5
+
+
+
+
+
 #                                Habilitando Repositorios REMI y EPEL
 
 rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
