@@ -22,8 +22,8 @@ class IkasleaController extends Controller
      */
     public function index()
     {   
-        //$user = Auth::user();
-        $eskaintzak = eskaintzak::all() ;//-> where('departamentua', 'informatika'//$user -> departamentua);
+        $user = Auth::user();
+        $eskaintzak = eskaintzak::where('departamentua', $user -> departamentua)->get();
 
         return view('ikaslea', compact('eskaintzak'));
     }
@@ -31,7 +31,7 @@ class IkasleaController extends Controller
 
 
         $email = Auth::user()->email;        
-        $perfila = perfila::where('email', '$email') -> first();
+        $perfila = perfila::where('email', $email) -> first();
         //dd($email);
 
        
