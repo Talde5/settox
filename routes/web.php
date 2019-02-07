@@ -18,6 +18,8 @@ Route::get('/', function () {
 
 //Route::group(['middleware' => 'auth'], function () {
 
+
+Route::group(['middleware' => 'App\Http\Middleware\Ikaslea'], function(){
     Route::get('/ikaslea', 'IkasleaController@Index');
     //X
     Route::post('baja', 'IkasleaController@baja')->name('baja');
@@ -38,13 +40,19 @@ Route::get('/', function () {
 
     Route::post('CVSortu', 'IkasleaController@CVSortu')->name('CVSortu');
     Route::post('CVAldatu', 'IkasleaController@CVAldatu')->name('CVAldatu');
+
+});
     
+
     
 //***************************IrakasleaController********************
+
+    Route::group(['middleware' => 'App\Http\Middleware\Irakaslea'], function(){
+
     Route::get('/irakaslea', 'IrakasleaController@Index');
     //X
 
-    
+    Route::post('import', 'IrakasleaController@import')->name('import');
     //X
      Route::get('/irakaslea/eskaintzak', 'IrakasleaController@Eskaintzak')->name('eskaintza');
           Route::get('/irakaslea/sortu', 'IrakasleaController@sortu')->name('sortu');
@@ -56,18 +64,17 @@ Route::get('/', function () {
     
     Route::get('/irakaslea/ikasleak', 'IrakasleaController@Ikasleak');
     
-    Route::post('import', 'IrakasleaController@import')->name('import');
-
-    Route::get('/irakaslea/ikasleak/borrar/{email}', 'AdministratzaileaController@delete');
-
     Route::get('/irakaslea/interesa', 'IrakasleaController@Interesa');
     
 
+    Route::get('/debekatuta', 'HomeController@debekatuta');
 
+});
 
 //*****************AdministratzaileaController***********************
 
 
+Route::group(['middleware' => 'App\Http\Middleware\Administratzailea'], function(){
     Route::get('/administratzailea', 'AdministratzaileaController@Index');
     
 
@@ -80,15 +87,14 @@ Route::get('/', function () {
 
     Route::post('insert', 'AdministratzaileaController@insert')->name('insert');
 
-     /*Route::get('/administratzailea/irakasleak/sortu', function(){ return view('administratzaileaIrakasleaSortu'); })->name('IrakasleakSortu');
-    Route::post('/administratzailea/irakasleak/sortu/post', 'AdministratzaileaController@IrakasleakSortu');*/
     
     Route::get('/administratzailea/ikasleak', 'AdministratzaileaController@Ikasleak');
+});
     
     
 
 //});
 
 Auth::routes();
-
 //Route::get('/home', 'HomeController@index')->name('home');
+
