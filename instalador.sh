@@ -1,10 +1,10 @@
 #!/bin/bash
-#
+
+#           Datos requeridos para instalacion de git 
 
 
-echo -e "Bienvenido al proyecto de SETTOX "
+echo -e "Bienvenidos a SETTOX "
 echo "completa los siguientes datos"
-sleep 5
 
 echo "¿correo de git?"
 read getGit
@@ -14,21 +14,35 @@ echo "contraseña de git"
 read pswGit
 echo -e "\e[1m \e[32mInstalando espere por favor... \e[0m"
 sleep 5
-# ------------- Habilitando Repositorios REMI y EPEL ------------- #
+
+
+#                                  instalacion nano 
+
+yum update
+yum upgrade
+yum install nano
+nano /etc/bashrc
+crontab -e
+sleep 5
+
+
+
+
+
+#                                Habilitando Repositorios REMI y EPEL
 
 rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 
 
-# ------------- Instalando servidor Web ------------- #
-
+#                               Instalando servidor Web 
 yum install -y httpd
 systemctl start httpd
 systemctl enable httpd
 systemctl status httpd
 
 
-# ------------- Instalando MariaDB------------- #
+#                                 Instalando MariaDB
 
 touch /etc/yum.repos.d/MariaDB.repo
 echo "[mariadb]
@@ -43,13 +57,11 @@ systemctl status mariadb
 mysql -e "CREATE DATABASE settox"
 
 
-# ------------- limpiando paginas de por defecto de httpd ------------- #
-
+#                            limpiando paginas de por defecto de httpd 
 rm -rf /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.save.conf
 
 
-# -------------  PHP ------------- #
-
+#                                                PHP 
 yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 yum install -y epel-release yum-utils
 yum-config-manager --enable remi-php*
@@ -60,7 +72,7 @@ systemctl status php-fpm
 systemctl restart httpd
 
 
-# ------------- Instalando Composer ------------- #
+#                                    Instalando Composer 
 
 yum install -y curl
 curl -sS https://getcomposer.org/installer | php
@@ -68,14 +80,14 @@ mv composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
 
 
-# ------------- Instalando NPM ------------- #
+#                                    Instalando NPM 
 
 curl -sL https://rpm.nodesource.com/setup_10.x | bash -
 yum install -y nodejs
 npm --version
 
 
-# ------------- Instalando SSH-Keyreg ------------- #
+#                                Instalando SSH-Keyreg 
 
 #Con SSH-Keyreg lo que lograremos es que la clave plubica de ssh que generamos sea introducida en GitHub
 # sin necesidad de que tenga que hacer nada el usuario.
@@ -84,13 +96,13 @@ npm --version
 #chmod +x /usr/local/bin/ssh-keyreg
 
 
-# ------------- Instalando y Configurando GIT ------------- #
+#                            Instalando y Configurando GIT 
 
 yum install -y git
 git config user.email "$getGit" #Introducimos como correo de git la proporcionada por el usuario
 git config user.name "$usuario" #Configuramos el usuario de Git
 
-# ------------- Generando SSH y vinculando a cuenta de GitHub ------------- #
+#                        Generando SSH y vinculando a cuenta de GitHub 
 
 directorio=$PWD
 cd ~/.ssh
@@ -99,7 +111,7 @@ echo -e "\n\n\n" | ssh-keygen -t rsa -N "" -C "$getGit" #Aquí generamos una key
 cd "$directorio"
 
 
-# ------------- Desplegando el proyecto e Instalandolo ------------- #
+#                            Desplegando el proyecto e Instalandolo 
 
 cd /var/www/html
 git clone https://github.com/talde5/settox.git
@@ -113,10 +125,10 @@ mysql -u root -p settox < settox.sql
 npm run dev
 
 
-# ------------- Cambiando Directorio Web ------------- #
+#                                Cambiando Directorio Web 
 
-echo "DocumentRoot \"/var/www/html/reto/public\"
-<Directory \"/var/www/html/reto\">
+echo "DocumentRoot \"/var/www/html/settox/public\"
+<Directory \"/var/www/html/settox\">
     Options Indexes FollowSymLinks
     AllowOverride All
     Require all granted
