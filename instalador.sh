@@ -10,8 +10,6 @@ echo "¿correo de git?"
 read getGit
 echo "¿usuario de git?"
 read usuario
-echo "contraseña de git"
-read pswGit
 echo -e "\e[1m \e[32mInstalando espere por favor... \e[0m"
 sleep 5
 
@@ -87,35 +85,17 @@ yum install -y nodejs
 npm --version
 
 
-#                                Instalando SSH-Keyreg 
-
-#Con SSH-Keyreg lo que lograremos es que la clave plubica de ssh que generamos sea introducida en GitHub
-# sin necesidad de que tenga que hacer nada el usuario.
-
-#curl https://raw.githubusercontent.com/b4b4r07/ssh-keyreg/master/bin/ssh-keyreg -o /usr/local/bin/ssh-keyreg
-#chmod +x /usr/local/bin/ssh-keyreg
-
-
 #                            Instalando y Configurando GIT 
 
 yum install -y git
 git config user.email "$getGit" #Introducimos como correo de git la proporcionada por el usuario
 git config user.name "$usuario" #Configuramos el usuario de Git
 
-#                        Generando SSH y vinculando a cuenta de GitHub 
-
-directorio=$PWD
-cd ~/.ssh
-echo -e "\n\n\n" | ssh-keygen -t rsa -N "" -C "$getGit" #Aquí generamos una key SSH
-'yes yes' | ssh-keyreg -u $usuario:$pswGit -p id_rsa.pub github #Con esta linea lo que hacemos es registrar el
-cd "$directorio"
-
-
 #                            Desplegando el proyecto e Instalandolo 
 
 cd /var/www/html
 git clone https://github.com/talde5/settox.git
-cd reto/
+cd settox/
 chmod -R 775 /var/www/html/settox
 chown -R apache.apache /var/www/html
 chmod -R 777 /var/www/html/settox/storage
@@ -135,7 +115,7 @@ echo "DocumentRoot \"/var/www/html/settox/public\"
 </Directory>" >> /etc/httpd/conf/httpd.conf
 systemctl restart httpd
 
-echo -e "\e[1m \e[32mGracias por utilizar jJobson! \e[0m"
+echo -e "\e[1m \e[32mGracias por utilizar settox! \e[0m"
 sleep 5
 #https://askubuntu.com/questions/261079/how-can-i-create-zip-file-with-the-date-in-its-name
 #https://stackoverflow.com/questions/47049510/php-script-to-push-site-backup-into-git-repositry-once-per-week
