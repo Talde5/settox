@@ -10,6 +10,7 @@ use Session;
 use Excel;
 use File;
 use Auth;
+use App\User;
 
 class IrakasleaController extends Controller
 {
@@ -111,13 +112,13 @@ class IrakasleaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function Interesa(){
-        //$user = Auth::user();
+        $user = Auth::user();
         
         $interesak = DB::table('erlazioa')
                     ->select('perfila.izena', 'perfila.apellidos', 'perfila.dni', 'perfila.email', 'eskaintzak.enpresa_Izena', 'eskaintzak.lan_Postua', 'eskaintzak.deskripzioa')
                     ->join('eskaintzak', 'eskaintzak.idEskaintzak', '=', 'erlazioa.idEskaintzak')
                     ->join('perfila', 'perfila.email', '=', 'erlazioa.email')
-                    ->where('eskaintzak.departamentua', 'informatika')//$user->departamentua
+                    ->where('eskaintzak.departamentua', $user->departamentua)//$user->departamentua
                     ->get();
 
        
@@ -145,6 +146,7 @@ class IrakasleaController extends Controller
      */
     public function sortu(Request $request)
     {
+
         $eskaintzak= new eskaintzak();
         $eskaintzak->enpresa_Izena= $request['enpresa_Izena'];
         $eskaintzak->lan_Postua= $request['lan_Postua'];

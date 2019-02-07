@@ -28,7 +28,7 @@
         </div> -->
         <div class="form-group">
             <label for="egoera">amaierako data:</label>
-            <input type="text" class="form-control" id="amaierako_Data" name="amaierako_Data">
+            <input type="date" class="form-control" id="amaierako_Data" name="amaierako_Data">
         </div>
  <div class="form-group">
             <label for="egoera">plaza_Hutsak:</label>

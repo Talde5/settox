@@ -75,7 +75,7 @@ class AdministratzaileaController extends Controller
     public function insert(Request $request)
     {     
         $Administratzailea= new User();
-        $Administratzailea->email= $request['Name'];
+        $Administratzailea->email= $request['name'];
         $Administratzailea->email= $request['email'];
         $Administratzailea->password= Hash::make($request['pasahitza']);
         $Administratzailea->rol= 1;

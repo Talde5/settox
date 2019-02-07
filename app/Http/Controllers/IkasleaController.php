@@ -10,6 +10,7 @@ use App\Models\erlazioa;
 use App\Models\hizkuntza;
 use App\Models\titulazioa;
 use App\Models\interesko_Datuak;
+use App\User;
 
 
 
@@ -81,15 +82,14 @@ class IkasleaController extends Controller
     }
 
     public function Interesa(){
-        $user = Auth::user();
-      $eskaintzak = DB::table('eskaintzak')
-        ->whereIn('idEskaintzak', function($query)
-        {
-            $query->select(DB::raw('idEskaintzak'))
-                  ->from('erlazioa')
-                  ->where('email', $user->email);
-        })
-        ->get();
+        $user = Auth::user()->email;
+        
+
+        $eskaintzak = DB::table('eskaintzak')
+                    ->select('erlazioa.*','eskaintzak.*')
+                    ->join('erlazioa', 'erlazioa.idEskaintzak', '=', 'eskaintzak.idEskaintzak')
+                    ->where('erlazioa.email', $user)
+                    ->get();
 
         
 
