@@ -4,7 +4,7 @@
 
 
 
-    <form method="POST" action="{{route('insert')}}">
+    <form method="POST" action="{{route('insert')}}" id="adminIrakSortu">
         {{ csrf_field() }}
         
         <div class="form-group">

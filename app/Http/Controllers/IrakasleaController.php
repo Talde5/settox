@@ -148,7 +148,7 @@ class IrakasleaController extends Controller
         $eskaintzak= new eskaintzak();
         $eskaintzak->enpresa_Izena= $request['enpresa_Izena'];
         $eskaintzak->lan_Postua= $request['lan_Postua'];
-      
+        $eskaintzak->amaierako_Data= $request['amaierako_Data'];
         $eskaintzak->deskripzioa= $request['deskripzioa'];
          $eskaintzak->plaza_Hutsak= $request['plaza_Hutsak'];
           $eskaintzak->departamentua= $request['departamentua'];

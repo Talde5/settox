@@ -98,9 +98,9 @@ class AdministratzaileaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   public function delete($email)
+   public function delete($id)
     {
-        administratzaileak::destroy($email);
+        User::destroy($id);
         return redirect('/administratzailea/irakasleak');
     }
 

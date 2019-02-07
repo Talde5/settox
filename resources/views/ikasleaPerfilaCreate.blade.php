@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
-                <form class="form-horizontal" method="post" action="{{route('perfilaSortu')}}">
+                <form class="form-horizontal" method="post" action="{{route('perfilaSortu')}}" id="perfila">
                     {{ csrf_field() }}
                     <fieldset>
                         <legend class="text-center header">Perfila</legend>
@@ -12,13 +12,13 @@
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="fname" name="name" type="text" placeholder="Izena" class="form-control">
+                                <input id="izena" name="izena" type="text" placeholder="Izena" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="lname" name="name" type="text" placeholder="Abizena" class="form-control">
+                                <input id="abizena" name="abizena" type="text" placeholder="Abizena" class="form-control">
                             </div>
                         </div>
 
@@ -32,26 +32,26 @@
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="phone" name="phone" type="text" placeholder="NAN" class="form-control">
+                                <input id="dni" name="dni" type="text" placeholder="NAN" class="form-control">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="phone" name="phone" type="textbox" placeholder="Jaiotze Data" class="form-control">
+                                <input id="jaiotze_Datahelbideakontaktua" name="jaiotze_Data" type="textbox" placeholder="Jaiotze Data" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="phone" name="phone" type="text" placeholder="Helbidea" class="form-control">
+                                <input id="helbideakontaktua" name="helbideakontaktua" type="text" placeholder="Helbidea" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="phone" name="phone" type="text" placeholder="Kontaktua" class="form-control">
+                                <input id="kontaktua" name="kontaktua" type="text" placeholder="Kontaktua" class="form-control">
                             </div>
                         </div>
 

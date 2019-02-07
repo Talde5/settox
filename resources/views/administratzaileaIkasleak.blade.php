@@ -13,16 +13,9 @@
 
         <div class="col-lg-3">
           <div class="list-group filtroak">
-            <a href="#" class="list-group-item">Category 1</a>
-            <a href="#" class="list-group-item">Category 2</a>
-            <a href="#" class="list-group-item">Category 3</a>
+            
           
-              <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data" class="list-group-item">
-                    {{ csrf_field() }}
-                    Aukeratu zeure xlsx/xls/csv artxiboa : <input type="file" name="file" class="form-control">
-                 
-                    <input type="submit" value="Gehitu Ikasleak" class="btn btn-primary btn-lg" style="margin-top: 3%">
-            </form>
+              
             </div>
         </div>
         <div class="col-lg-9">
@@ -33,11 +26,9 @@
                     <div class="card-header">
                             <ul class="nav nav-tabs card-header-tabs">
                               <li class="nav-item">
-                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home{{$i}}" role="tab" aria-controls="home" aria-selected="true">{{$user->name}}</a>   
+                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home{{$i}}" role="tab" aria-controls="home" aria-selected="true">Ikaslea</a>   
                               </li>
-                              <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile{{$i}}" role="tab" aria-controls="profile" aria-selected="false">Lan Eskaintza</a>
-                              </li>
+                              
                             </ul>
                             </div>
 
@@ -45,19 +36,16 @@
                       <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home{{$i}}" role="tabpanel" aria-labelledby="home-tab">
                           <h4 class="card-title">
-                           
+                           {{$user->name}}
                           </h4>
-                       
+                        <p class="card-text">{{ $user->email }}</p>
+                        <p class="card-text">{{ $user->departamentua }}</p>
                         </div>
-                        <div class="tab-pane fade" id="profile{{$i}}" role="tabpanel" aria-labelledby="profile-tab">
-                          <p class="card-text">{{ $user->email }}</p>
-                          
                         
-                        </div>
                       
                     </div>
                     <div class="card-footer">
-                        <small><button id="bidaliCV" class="btn btn-primary btn-lg">Ezabatu</button></small>
+                        <td><a href="borrar/{{$user->id}}"id="bidaliCV" class="btn btn-primary btn-lg">Ezabatu</a></td>
                         
                       <!-- <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> -->
                     </div>

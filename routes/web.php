@@ -44,7 +44,7 @@ Route::get('/', function () {
     Route::get('/irakaslea', 'IrakasleaController@Index');
     //X
 
-    Route::post('import', 'IrakasleaController@import')->name('import');
+    
     //X
      Route::get('/irakaslea/eskaintzak', 'IrakasleaController@Eskaintzak')->name('eskaintza');
           Route::get('/irakaslea/sortu', 'IrakasleaController@sortu')->name('sortu');
@@ -56,6 +56,10 @@ Route::get('/', function () {
     
     Route::get('/irakaslea/ikasleak', 'IrakasleaController@Ikasleak');
     
+    Route::post('import', 'IrakasleaController@import')->name('import');
+
+    Route::get('/irakaslea/ikasleak/borrar/{email}', 'AdministratzaileaController@delete');
+
     Route::get('/irakaslea/interesa', 'IrakasleaController@Interesa');
     
 

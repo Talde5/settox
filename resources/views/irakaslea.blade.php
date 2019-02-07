@@ -48,10 +48,7 @@
                         </div>
                       
                     </div>
-                    <div class="card-footer">
-                        <small><button id="bidaliCV" class="btn btn-primary btn-lg">Bidali CV</button></small>
-                      <!-- <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> -->
-                    </div>
+                    
                   </div>
                 </div>
               </div>
