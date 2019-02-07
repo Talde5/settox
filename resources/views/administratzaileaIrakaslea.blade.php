@@ -12,7 +12,7 @@
                     {{ csrf_field() }}
                     
                  
-                    <input type="submit" value="Gehitu Irasleak" class="btn btn-primary btn-lg" style="margin-top: 3%">
+                    <input type="submit" value="Gehitu Irakasleak" class="btn btn-primary btn-lg" style="margin-top: 3%">
             </form>
             </div>
         </div>
