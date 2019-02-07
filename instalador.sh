@@ -48,7 +48,7 @@ mysql -e "CREATE DATABASE settox"
 rm -rf /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.save.conf
 
 
-# -------------  PHP -
+#                                                PHP 
 yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 yum install -y epel-release yum-utils
 yum-config-manager --enable remi-php*
