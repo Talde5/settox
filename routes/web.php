@@ -55,7 +55,8 @@ Route::group(['middleware' => 'App\Http\Middleware\Ikaslea'], function(){
     Route::post('import', 'IrakasleaController@import')->name('import');
     //X
      Route::get('/irakaslea/eskaintzak', 'IrakasleaController@Eskaintzak')->name('eskaintza');
-          Route::get('/irakaslea/sortu', 'IrakasleaController@sortu')->name('sortu');
+     Route::get('/irakaslea/sortu', 'IrakasleaController@sortu')->name('sortu');
+     Route::get('/irakaslea/ikasleak/borrar/{email}', 'AdministratzaileaController@delete');
 
      
 
@@ -66,8 +67,6 @@ Route::group(['middleware' => 'App\Http\Middleware\Ikaslea'], function(){
     
     Route::get('/irakaslea/interesa', 'IrakasleaController@Interesa');
     
-
-    Route::get('/debekatuta', 'HomeController@debekatuta');
 
 });
 
