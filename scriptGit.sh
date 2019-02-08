@@ -18,7 +18,7 @@ if [ -d "$DIRECTORIO" ]
 then
    echo "El directorio ${DIRECTORIO} existe"
    cd $DIRECTORIO
-   git pull origin master
+   
    git add .
    git commit -m "$DIA"
 	echo " $DIA -  $HORA"
