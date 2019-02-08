@@ -5,10 +5,12 @@ use App\Models\eskaintzak;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Session;
 use Excel;
 use File;
 use Auth;
+use App\User;
 
 class IrakasleaController extends Controller
 {
@@ -22,7 +24,7 @@ class IrakasleaController extends Controller
         //$user = Auth::user();
         $eskaintzak = eskaintzak::all() ;//-> where('departamentua', 'informatika'//$user -> departamentua);
 
-        return view('Add', compact('eskaintzak'));
+        return view('irakaslea', compact('eskaintzak'));
     }
 
     public function import(Request $request){
@@ -42,15 +44,23 @@ class IrakasleaController extends Controller
  
                     foreach ($data as $key => $value) {
                         $insert[] = [
+                        'name'  => $value->izena,  
                         'email' => $value->email,
-                        'pasahitza' => $value->pasahitza,
-                        'egoera' => $value->egoera,
+                        'password' => Hash::make($value->pasahitza),
+                        'departamentua' => $value->departamentua,
                         ];
+                        /*$obj = new \stdClass();
+                        $obj->email = $value->email;
+                        $obj->pasahitza = $value->pasahitza;
+                        $obj->sender = 'CIFP Txurdinaga LHII';
+                        $obj->receiver = $value->izena;
+                        dd(env('MAIL_HOST'));
+                        Mail::to($value->email)->send(new DemoEmail($obj));*/
                     }
  
                     if(!empty($insert)){
  
-                        $insertData = DB::table('ikasleak')->insert($insert);
+                        $insertData = DB::table('users')->insert($insert);
                         if ($insertData) {
                             Session::flash('success', 'Your Data has successfully imported');
                         }else {                        
@@ -76,13 +86,22 @@ class IrakasleaController extends Controller
     public function eskaintzak()
     {
         //
-        return view('irakasleaEskaintzak');
+        return view('irakasleaEskaintzaSortu');
     }
 
     public function Ikasleak(){
-       $users = DB::table('users')->where ('rol',2)-> get();
-       
-        return view('administratzaileaIkasleak', compact('users'));
+      $departamentua = Auth::user()->departamentua;
+
+      $users = DB::table('users')
+                    ->select('users.*','perfila.*')
+                    ->join('perfila', 'perfila.email', '=', 'users.email')
+                    ->where('users.departamentua', $departamentua)
+                    ->where('users.rol', '2')
+                    //$user->departamentua
+                    ->get();
+
+
+        return view('irakasleaIkasleak', compact('users'));
 
 
     }
@@ -93,13 +112,13 @@ class IrakasleaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function Interesa(){
-        //$user = Auth::user();
+        $user = Auth::user();
         
         $interesak = DB::table('erlazioa')
                     ->select('perfila.izena', 'perfila.apellidos', 'perfila.dni', 'perfila.email', 'eskaintzak.enpresa_Izena', 'eskaintzak.lan_Postua', 'eskaintzak.deskripzioa')
                     ->join('eskaintzak', 'eskaintzak.idEskaintzak', '=', 'erlazioa.idEskaintzak')
                     ->join('perfila', 'perfila.email', '=', 'erlazioa.email')
-                    ->where('eskaintzak.departamentua', 'informatika')//$user->departamentua
+                    ->where('eskaintzak.departamentua', $user->departamentua)//$user->departamentua
                     ->get();
 
        
@@ -125,19 +144,13 @@ class IrakasleaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function oferta()
-    {
-     
-
-
-        return view('irakasleaEskaintzasortu');
-   }
     public function sortu(Request $request)
     {
+
         $eskaintzak= new eskaintzak();
         $eskaintzak->enpresa_Izena= $request['enpresa_Izena'];
         $eskaintzak->lan_Postua= $request['lan_Postua'];
-      
+        $eskaintzak->amaierako_Data= $request['amaierako_Data'];
         $eskaintzak->deskripzioa= $request['deskripzioa'];
          $eskaintzak->plaza_Hutsak= $request['plaza_Hutsak'];
           $eskaintzak->departamentua= $request['departamentua'];
@@ -168,8 +181,9 @@ class IrakasleaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        User::destroy($id);
+        return redirect('/irakaslea/ikasleak');
     }
 }

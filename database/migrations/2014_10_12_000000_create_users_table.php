@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->integer('rol')->default('2');
             $table->tinyInteger('egoera')->default('1');
+            $table->string('departamentua')->nullable();
+
         });
     }
 

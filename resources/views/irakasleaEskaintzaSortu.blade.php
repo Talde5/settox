@@ -1,10 +1,10 @@
-@extends('Layouts.master')
+@extends('Layouts.irakasleaLayout')
 
 @section('content')
 
 
 
-    <form method="GET" action="sortu">
+    <form method="GET" action="sortu" id="eskaintzaSortu">
         {{ csrf_field() }}
         
  
@@ -22,11 +22,14 @@
             <label for="egoera">deskripzioa:</label>
             <input type="text" class="form-control" id="deskripzioa" name="deskripzioa">
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="egoera">egoera:</label>
             <input type="text" class="form-control" id="egoera" name="egoera">
+        </div> -->
+        <div class="form-group">
+            <label for="egoera">amaierako data:</label>
+            <input type="date" class="form-control" id="amaierako_Data" name="amaierako_Data">
         </div>
- 
  <div class="form-group">
             <label for="egoera">plaza_Hutsak:</label>
             <input type="text" class="form-control" id="plaza_Hutsak" name="plaza_Hutsak">
@@ -39,7 +42,7 @@
  
  
         <div class="form-group">
-               <input href="irakaslea/sortu"  type="submit" value="Gehitu Ikasleak" class="btn btn-primary btn-lg" style="margin-top: 3%">
+               <input href="irakaslea/sortu"  type="submit" value="Gehitu Eskaintzak" class="btn btn-primary btn-lg" style="margin-top: 3%">
         </div>
 
 </form>

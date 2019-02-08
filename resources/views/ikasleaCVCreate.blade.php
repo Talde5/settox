@@ -1,10 +1,10 @@
-@extends('Layouts.master')
+@extends('Layouts.ikasleaLayout')
 
 @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
-                <form class="form-horizontal" method="post" action="{{ route('CVSortu')}}">
+                <form class="form-horizontal" method="post" action="{{ route('CVSortu')}}" id="CV">
                     {{ csrf_field() }}
                     <fieldset>
                         <legend class="text-center header">Curriculum Vitae</legend>

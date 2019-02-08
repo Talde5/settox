@@ -57,23 +57,28 @@ class AdministratzaileaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function borrar(Request $email)
-    {
-        $administratzaileak = DB::table('Administratzaileak')->where ('email','$email')-> delete();
-        return view('administratzaileaIrakaslea');
-    }
+    
 
     
     public function IrakasleakSortu(){
+        /* $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->departamentua = $request->departamentua;
+        $user->rol = 1;
+        $user->egoera = 1;
+        $user->save();
+        return response()->json(['success'=>'Data is successfully added']);*/
         return view('administratzaileaIrakasleaSortu');
     }
     public function insert(Request $request)
     {     
         $Administratzailea= new User();
+        $Administratzailea->email= $request['name'];
         $Administratzailea->email= $request['email'];
         $Administratzailea->password= Hash::make($request['pasahitza']);
-        $Administratzailea->rol= $request['mota'];
-        $Administratzailea->egoera= $request['egoera'];
+        $Administratzailea->rol= 1;
         $Administratzailea->departamentua= $request['departamentua'];
 
     // add other fields
@@ -89,13 +94,17 @@ class AdministratzaileaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   public function delete($email)
+   public function delete($id)
     {
-        administratzaileak::destroy($email);
-        return redirect('/administratzailea/irakasleak');
+        User::destroy($id);
+        return redirect('/administratzailea/ikasleak');
     }
 
-
+    public function borrar($id)
+    {
+        User::destroy($id);
+        return redirect('/administratzailea/irakasleak');
+    }
 
 
 

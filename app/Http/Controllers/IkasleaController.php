@@ -10,6 +10,7 @@ use App\Models\erlazioa;
 use App\Models\hizkuntza;
 use App\Models\titulazioa;
 use App\Models\interesko_Datuak;
+use App\User;
 
 
 
@@ -22,8 +23,8 @@ class IkasleaController extends Controller
      */
     public function index()
     {   
-        //$user = Auth::user();
-        $eskaintzak = eskaintzak::all() ;//-> where('departamentua', 'informatika'//$user -> departamentua);
+        $user = Auth::user();
+        $eskaintzak = eskaintzak::where('departamentua', $user -> departamentua)->get();
 
         return view('ikaslea', compact('eskaintzak'));
     }
@@ -31,7 +32,7 @@ class IkasleaController extends Controller
 
 
         $email = Auth::user()->email;        
-        $perfila = perfila::where('email', '$email') -> first();
+        $perfila = perfila::where('email', $email) -> first();
         //dd($email);
 
        
@@ -81,15 +82,14 @@ class IkasleaController extends Controller
     }
 
     public function Interesa(){
-        //$user = Auth::user();
-      $eskaintzak = DB::table('eskaintzak')
-        ->whereIn('idEskaintzak', function($query)
-        {
-            $query->select(DB::raw('idEskaintzak'))
-                  ->from('erlazioa')
-                  ->where('email', 'ikaslea@ikaslea.com');
-        })
-        ->get();
+        $user = Auth::user()->email;
+        
+
+        $eskaintzak = DB::table('eskaintzak')
+                    ->select('erlazioa.*','eskaintzak.*')
+                    ->join('erlazioa', 'erlazioa.idEskaintzak', '=', 'eskaintzak.idEskaintzak')
+                    ->where('erlazioa.email', $user)
+                    ->get();
 
         
 
@@ -98,11 +98,11 @@ class IkasleaController extends Controller
 
     public function CV(){
         $email = Auth::user()->email;        
-        $perfila = perfila::where('email', '$email') -> first();
+        $perfila = perfila::where('email', $email) -> first();
 
-        $titulazioak = titulazioa::where('email', '$email') ->get();
-        $hizkuntzak = hizkuntza::where('email', '$email')->get();
-        $interesak = interesko_Datuak::where('email', '$email')->first();
+        $titulazioak = titulazioa::where('email', $email) ->get();
+        $hizkuntzak = hizkuntza::where('email', $email)->get();
+        $interesak = interesko_Datuak::where('email', $email)->first();
 
         if(isset($perfila) && isset($titulazioak) && isset($hizkuntzak) && isset($interesak)){
             return view('ikasleaCVUpdate', compact('perfila', 'titulazioak', 'hizkuntzak', 'interesak'));

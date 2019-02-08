@@ -11,13 +11,11 @@ class administratzaileakTableSeeder extends Seeder
      */
     public function run()
     {
-        //SuperAdministratzailea sortu
-        DB::table('administratzaileak')->delete();
+        //
+        DB::table('users')->delete();
 
-        DB::table('administratzaileak')->insert(
-    	['email' => 'prueba@prueba.com', 'pasahitza' => '1234', 'mota' => 1, 'departamentua' => 'Administratzailea', 'egoera' => true]
-);
-
-
+        DB::table('users')->insert(
+        ['email' => 'admin@admin.com', 'password' => Hash::make('admin'), 'rol' => 0 , 'egoera'=>1,'departamentua'=> 'admin']
+        );
     }
 }

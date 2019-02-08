@@ -18,7 +18,7 @@ class CreateErlazioaIkasleakEskaintzakTable extends Migration
             $table->integer('idEskaintzak')->unsigned();
             $table->timestamp('interes_Data');
             $table->primary(array('email', 'idEskaintzak'));
-            $table->foreign('email')->references('email')->on('ikasleak')->onDelete('cascade');
+            $table->foreign('email')->references('email')->on('users')->where('rol',2)->onDelete('cascade');
             $table->foreign('idEskaintzak')->references('idEskaintzak')->on('eskaintzak')->onDelete('cascade');
         });
     }
